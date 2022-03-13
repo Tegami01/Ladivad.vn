@@ -1,0 +1,180 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<main>
+    <section id="banner">
+        <h1 style="display: none;">Công ty thiết kế và thi công nội thất cao cấp La Divad' Design</h1>
+        <h4 style="display: none;">CÔNG TY THIẾT KẾ NỘI THẤT La Divad' Design</h4>
+        <div class="swiper-container slide-banner">
+            <div class="swiper-wrapper">
+                @Html.Action("_Slider", "Partial")
+            </div>
+
+            <div class="swiper-button-next"><a href="javascript:0"><img src="~/Content/public/frontend/images/right1.png" class="img-fluid" alt="Trang chủ"></a></div>
+            <div class="swiper-button-prev"><a href="javascript:0"><img src="~/Content/public/frontend/images/left1.png" class="img-fluid" alt="Trang chủ"></a></div>
+        </div>
+    </section>
+    <section id="list-banner">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="item wow fadeIn wHighlight" data-wow-delay=".4s">
+                            <div class="avarta"><a href="/ProjectInterior"><img src="~/Content/uploads/service/noithat..jpg" class="img-fluid" width="100%" alt="Thiết kế nội thất"></a></div>
+                            <div class="info">
+                                <h2>
+                                    <a style=" font-family: 'Times New Roman';font-size: 16px; color: white;" href="/ProjectInterior">Thiết kế nội thất</a>
+                                </h2>
+                                <p style="font-family: 'Times New Roman'; text-align: justify; font-size: 16px; color: #87837f;">La Divad' Design tự h&agrave;o l&agrave; đơn vị Thiết kế nội thất uy t&iacute;n h&agrave;ng đầu tr&ecirc;n thị trường nội thất Việt. Chuy&ecirc;n tư vấn thiết kế nội thất phong c&aacute;ch kiến trúc hiện đại, sang trọng và đẳng cấp. Dịch vụ uy t&iacute;n, chuy&ecirc;n nghiệp.</p>
+                                <div id="eJOY__extension_root" style="all: unset;">&nbsp;</div>
+                                <div class="viewmore">
+                                    <a style=" color: white;" href="/ProjectInterior" class="box first">Xem thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="item wow fadeIn wHighlight" data-wow-delay=".4s">
+                            <div class="avarta"><a href="/ProjectExterior"><img src="~/Content/uploads/service/ngoaithat..jpg" class="img-fluid" width="100%" alt="Thiết Kế Ngoại Thất"></a></div>
+                            <div class="info">
+                                <h2>
+                                    <a style="font-family: 'Times New Roman';font-size: 16px; color:white;" href="/ProjectExterior"> Thiết Kế Kiến Trúc </a>
+                                </h2>
+                                <p style="font-size: 16px; color: #87837f">La Divad' Design&nbsp;cung cấp cho kh&aacute;ch h&agrave;ng giải ph&aacute;p to&agrave;n diện từ thiết kế, thi c&ocirc;ng đến ho&agrave;n thiện kh&ocirc;ng gian sống chất lượng và đẳng câp.</p>
+                                <div style="all: unset;">&nbsp;</div>
+                                <div class="viewmore">
+                                    <a style=" color: white;" href="/ProjectExterior" class="box first">Xem thêm</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="box-project">
+        <div class="container">
+            <div class="content">
+                <div class="title"><h2 style=" font-family: 'Times New Roman'; color: #fff;"><span>dự án mới hoàn thành</span></h2></div>
+            </div>
+        </div>
+        <div class="list-project">
+            <div class="container-fluid">
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6 col-small">
+                            <div class="small">
+                                <div class="row">
+                                    @Html.Action("Get4", "Home")
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-big">
+                            @Html.Action("Get5", "Home")
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6 col-small">
+                            <div class="small">
+                                <div class="row">
+                                    @Html.Action("Get9", "Home")
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-big">
+                            @Html.Action("Get10", "Home")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <section id="box-baochi">
+        <div class="container">
+            <div class="title"><h2 style="color: white"><span>ĐỐI TÁC CỦA CHÚNG TÔI</span></h2></div>
+            <div class="content row">
+                <div class="col-sm-12 col-lg-12">
+                    <div class="item">
+                        <div class="avarta">
+                            <center> <img src="~/Content/uploads/logo/doi-tac.png" style="margin-left: 20px" class="img-fluid" alt="Đối Tác của La Divad' Design"></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="slideshow-container">
+        <div class="title"><h2 style="color: white"><span>KHÁCH HÀNG NÓI GÌ VỀ LA DIVAD' DESIGN</span></h2></div>
+        <div class="mySlides fade">
+            <h1 style="color: white; text-align: center">''</h1>
+            <div class="text" style="margin-top: 10px">Mỗi căn nhà La Divad' thiết kế đều đặt cả tâm hồn, trái tim và biến nó thành kiệt tác nghệ thuật.</div>
+            <h4 style="text-align: center;color: white">Anh Hùng-Chị Trang</h4>
+        </div>
+        <div class="mySlides fade">
+            <h1 style="color: white; text-align: center">''</h1>
+            <div class="text" style="margin-top: 10px">Tôi hài lòng với đội ngũ thiết kế Của La Divad', làm việc rất chuyên nghiệp, trong thời gian ngắn và mang tính chuyên môn cao.</div>
+            <h4 style="text-align: center;color: white">Chị Thủy</h4>
+        </div>
+
+        <div class="mySlides fade">
+            <h1 style="color: white; text-align: center">''</h1>
+            <div class="text" style="margin-top: 10px">Những thiết kế của La Divad' luôn mang đến một không gian rất nghệ thuật!</div>
+            <h4 style="text-align: center;color: white">Chị Linh</h4>
+        </div>
+        <div class="mySlides fade">
+            <h1 style="color: white; text-align: center">''</h1>
+            <div class="text" style="margin-top: 10px">Đội ngũ thiết kế của La Divad' đã gửi gắm câu chuyện vào căn nhà của tôi một cách rất tinh tế….</div>
+            <h4 style="text-align: center;color: white  ">Anh Hoàng</h4>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</main>
+
+
+
+<script>
+    //khai báo biến slideIndex đại diện cho slide hiện tại
+    var slideIndex;
+    // KHai bào hàm hiển thị slide
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex].style.display = "block";
+        dots[slideIndex].className += " active";
+        //chuyển đến slide tiếp theo
+        slideIndex++;
+        //nếu đang ở slide cuối cùng thì chuyển về slide đầu
+        if (slideIndex > slides.length - 1) {
+            slideIndex = 0
+        }
+        //tự động chuyển đổi slide sau 5s
+        setTimeout(showSlides, 5000);
+    }
+    //mặc định hiển thị slide đầu tiên
+    showSlides(slideIndex = 0);
+
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+</script>

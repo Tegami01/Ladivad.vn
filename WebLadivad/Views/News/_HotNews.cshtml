@@ -1,0 +1,17 @@
+﻿
+@model IEnumerable<Model.DataModel.NewsDTO>
+
+@foreach (var item in Model)
+{
+    <div class="item-read">
+
+        <div class="avarta">
+            <a href="/Project/Details/@item.Url"><img src="~/uploads/news/@item.ImgMain" class="img-fluid" width="100%"></a>
+        </div>
+        <div class="info">
+            <h4>
+                <a style="color: white" href="/Project/Details/@item.Url" title="Tổng hợp 100+ Mẫu thiết kế nội thất">@item.Title</a>
+            </h4>
+        </div>
+    </div>
+}

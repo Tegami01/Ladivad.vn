@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Model.DataModel.NewsDTO>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-6 col-sm-6 col-6">
+        <div class="item-small wow fadeIn" data-wow-delay=".4s">
+            <div class="avarta"><a href="/Project/Details/@item.Url"><img src="~/uploads/news/@item.ImgMain" class="img-fluid" width="100%" alt="Thiết kế nội thất biệt thự tại Long Biên"></a></div>
+            <div class="info">
+                <h3>
+                    <a style="font-family: 'Times New Roman'; font-size: 16px" href="/Project/Details/@item.Url">@item.Title</a>
+                </h3>
+
+            </div>
+        </div>
+    </div>
+}

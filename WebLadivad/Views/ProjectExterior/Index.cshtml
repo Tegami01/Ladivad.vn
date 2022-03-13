@@ -1,0 +1,63 @@
+﻿
+@model Model.DataModel.NewsDTO
+
+@{
+    ViewBag.Title = "Ngoại thất";
+}
+
+<main>
+    <section id="banner-cate">
+        <h1 style="display: none;">CÔNG TY CỔ PHẦN KIẾN TRÚC La Divad'</h1>
+        <h4 style="display: none;">CÔNG TY CỔ PHẦN KIẾN TRÚC La Divad'</h4>
+        <div class="avarta"><img src="~/Content/uploads/banner/Banner4.jpg" class="img-fluid" width="100%" alt="CÔNG TY Cổ Phần Kiến Trúc la Divad'"></div>
+    </section>
+    <section id="breadcrumbs" style="padding-top: 20px;padding-bottom: 20px;">
+        <div class="container">
+            <div class="content">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="/"><img src="~/Content/public/frontend/images/home.png" class="img-fluid" alt="CÔNG TY Cổ Phần Kiến Trúc la Divad'"></a></li>
+                    <li class="list-inline-item"><a style="color: white" href="javascipt:0">Dịch vụ</a></li>
+                    <li class="list-inline-item"><span style="color: white">Thiết kế ngoại thất</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="box-project" style="margin-bottom: 40px;">
+
+        <div class="container">
+            <div class="content">
+                <div class="title"><h2 style="color: white"><span>Thiết kế ngoại thất</span></h2></div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="content  active show" data-toggle="tab" href="#tab-7" role="tab" aria-selected="true"><span>Biệt thự</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="content " data-toggle="tab" href="#tab-9" role="tab"><span>chung cư</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="content " data-toggle="tab" href="#tab-10" role="tab"><span>Nhà phố</span></a>
+            </li>
+        </ul>
+        <div class="tab-content">
+
+            <div class="tab-content">
+
+                @Html.Action("Bt", "ProjectExterior")
+
+                @Html.Action("Ct", "ProjectExterior")
+
+                @Html.Action("Np", "ProjectExterior")
+
+            </div>
+            <br />
+            <div class="item wow fadeIn wHighlight" data-wow-delay=".4s">
+                <div style="all: unset;">&nbsp;</div>
+                <div class="viewmore">
+                    <a style=" color: white;" href="/Project" class="box first">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

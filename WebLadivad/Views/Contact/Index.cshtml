@@ -1,0 +1,129 @@
+﻿@model Model.DataModel.ContactDTO
+@{
+    ViewBag.Title = "Liên hệ";
+}
+@section style
+{
+
+}
+<main>
+    <section id="banner-cate">
+        <div class="avarta">
+            <img src="~/Content/uploads/logo/z2563699754970_8bed241fa69a4e9342c1a869b1cc8b2b.jpg" class="img-fluid" width="100%" alt="">
+        </div>
+    </section>
+    <section id="breadcrumbs" style="padding-top: 40px;padding-bottom: 40px;">
+        <div class="container">
+            <div class="content">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="index.htm"><img src="~/Content/public/frontend/images/home.png" class="img-fluid" alt=""></a></li>
+                    <li class="list-inline-item"><a href="/" style="color:white;">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-6">
+                        @if (TempData["Message"] != null)
+                        {
+                            <div class="row alert alert-success order-success">
+                                @TempData["Message"]
+                            </div>
+                        }
+                        @using (Html.BeginForm("Index", "Contact", FormMethod.Post, new { @class = "", @enctype = "multipart/form-data", @autocomplete = "off" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <input type="hidden" name="_token" value="rXQtM1CTj319XUtJsTdbG5wlfnnU4TgjtAf7fFJp">
+                            <div class="left">
+                                <div class="info">
+                                    <h3>thông tin cá nhân</h3>
+                                    <div class="item">
+                                        @*<input type="text" class="" placeholder="" name="fullname" required="">*@
+                                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @placeholder = "Họ và tên",@type="text", @class = "form-control col-12" } })
+                                    </div>
+                                    <div class="item">
+                                        @*<input type="number" class="form-control col-12" placeholder="" min="1" name="phone" required="">*@
+                                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @placeholder = "Số điện thoại (*)", @type = "number",@min="1", @class = "form-control col-12" } })
+                                    </div>
+                                    <div class="item">
+                                        @*<input type="text" class="form-control col-12" placeholder="" name="email" required="">*@
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Email", @type = "text", @class = "form-control col-12" } })
+                                    </div>
+                                </div>
+                                <div class="info">
+                                    <h3>thông tin dự án</h3>
+                                    <div class="item">
+                                        <p>Tên/Địa chỉ dự án</p>
+                                        @*<input type="text" class="form-control col-12" placeholder="Tên căn hộ hoặc địa chỉ dự án" name="project_name" required="">*@
+                                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @placeholder = "Tên căn hộ hoặc địa chỉ dự án", @type = "text", @class = "form-control col-12" } })
+                                    </div>
+                                    <div class="item">
+                                        <p>Loại dự án</p>
+                                        <ul class="unstyled centered">
+                                            <li>  
+                                                <input class="styled-checkbox" data-val="true" data-val-required="The project1 field is required." id="styled-checkbox-1" name="project1" type="checkbox" value="true">
+                                                <label for="styled-checkbox-1">Căn Hộ</label>
+                                            </li>
+                                            <li>
+                                                <input class="styled-checkbox" data-val="true" data-val-required="The project2 field is required." id="styled-checkbox-2" name="project2" type="checkbox" value="true">
+                                                <label for="styled-checkbox-2">Biệt Thự</label>
+                                            </li>
+                                            <li>
+                                                <input class="styled-checkbox" data-val="true" data-val-required="The project3 field is required." id="styled-checkbox-3" name="project3" type="checkbox" value="true">
+                                                <label for="styled-checkbox-3">Nhà Phố</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="item">
+                                        <p>Dịch vụ yêu cầu</p>
+                                        <ul class="unstyled centered">
+                                            <li>
+                                                <input class="styled-checkbox" data-val="true" data-val-required="The service1 field is required." id="styled-checkbox-4" name="service1" type="checkbox" value="true">
+                                                <label for="styled-checkbox-4">Thiết kế nội thất</label>
+                                            </li>
+                                            <li>
+                                                <input class="styled-checkbox" data-val="true" data-val-required="The service2 field is required." id="styled-checkbox-5" name="service2" type="checkbox" value="true">
+                                                <label for="styled-checkbox-5">Thi công nội thất</label>
+                                            </li>
+                                            <li>
+                                                <input class="styled-checkbox" data-val="true" data-val-required="The service1 field is required." id="styled-checkbox-6" name="service3" type="checkbox" value="true">
+                                                <label for="styled-checkbox-6">Cả 2</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="item">
+                                        <p>Yêu cầu thêm nội dung (nếu có)</p>
+                                        @*<textarea name="desc" placeholder="Nội dung" class="form-control col-12" id="" cols="30" rows="10"></textarea>*@
+                                        @Html.TextAreaFor(model => model.Note, new { @placeholder = "Nội dung",  @class = "form-control col-12",@cols="30",@rows="10" })
+                                    </div>
+                                    <div class="item">
+                                        <div class="btn-submit">
+                                            <button type="submit" value="Bạn Đã Gửi Yêu Cầu Thành Công">Gửi Yêu Cầu</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right">
+                            <h3>Thông tin liên hệ</h3>
+                            <div class="desc"><p>La Divad' Design c&oacute; sứ mệnh đem những sản phẩm nội thất đạt chất lượng h&agrave;ng đầu với gi&aacute; th&agrave;nh cạnh tranh đến tay người ti&ecirc;u d&ugrave;ng. Tham vọng của La Divad' Design l&agrave; trở th&agrave;nh thương hiệu nội thất Việt tr&ecirc;n thị trường quốc tế.<br><strong>Trụ sở văn ph&ograve;ng:</strong> Tầng 2, số 177 Lê Lai, Hà Đông, H&agrave; Nội<br><strong>Thời gian l&agrave;m việc:</strong> 8h &ndash; 17h30 kể cả thứ 7 và chủ nhật</p></div>
+                            <div class="maps"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.68503218853!2d105.7753232149315!3d20.965160186032833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453fa972f2923%3A0xf1a85c3f3bf9e200!2sLa%20Divad&#39;%20Design!5e0!3m2!1sen!2s!4v1604654854003!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                               </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<div class="moveto-top">
+        <a href="#top" class="movetotop-btn">
+            <img style="max-width: 70px" src="uploads\contact\up-arrow.png">
+        </a>
+    </div>-->
+</main>

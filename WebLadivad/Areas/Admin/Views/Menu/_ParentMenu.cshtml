@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Model.DataModel.MenuDTO>
+<select class="form-select form-select-sm mb-3" id="add_parentId" aria-label=".form-select-sm example">
+    <option selected value="null">Menu cha</option>
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id">@item.Name</option>
+    }
+</select>
+
+

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Model.DataModel.MenuDTO>
+
+
+
+@foreach (var l1 in Model)
+{
+    <li>
+        <a href="" style="color: white;"><a href="@l1.Url">@l1.Name</a></a>
+            @if (l1.MenuSub.Count == 0)
+            {
+
+            }
+            else
+            {
+                <ul>
+                    @foreach (var l2 in l1.MenuSub)
+                    {
+                        <li>
+                            <a style="color: white !important" href="@l2.Url">@l2.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+
+    </li>
+}

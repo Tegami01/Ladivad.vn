@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Model.DataModel.AttachmentDTO>
+
+<div id="carousel-thumbs" class="carousel-thumbnails">
+    <div class="slider-for">
+        @foreach (var item in Model)
+        {
+
+            <div class="carousel-items ">
+                <img class="img-fluid" src="~/uploads/news/@item.NewsId/@item.FileName" width="100%" alt="Third slide">
+            </div>
+        } 
+
+    </div>
+    <!--/.Slides-->
+    <div class="slider-nav">
+        @foreach (var item in Model)
+        {
+            <div class="clc ">
+                <img class="" src="~/uploads/news/@item.NewsId/@item.FileName" alt="Third slide">
+            </div>
+        }
+    </div>
+</div>

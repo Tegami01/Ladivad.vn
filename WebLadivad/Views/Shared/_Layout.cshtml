@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/uploads/logo/logo-ladivad.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:site_name" content="La Divad'">
+    <meta property="og:image" content="uploads/logo/logo-ladivad.png">
+    <!--link css-->
+    <link rel="stylesheet" href="~/Content/public/frontend/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/public/frontend/css/fancybox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/Content/public/frontend/css/style.css">
+    <link rel="stylesheet" href="~/Content/public/frontend/css/responsive.css">
+    <link rel="stylesheet" href="~/Content/public/frontend/css/swiper.min.css">
+    <link rel="stylesheet" href="~/Content/public/frontend/css/jquery.mmenu.all.css">
+    <link rel="stylesheet" href="~/Content/public/frontend/css/cust.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="alternate" type="application/rss+xml" title="Ladivad" href="rss.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/public/frontend/css/slick.min.css">
+    <link rel="canonical" href="index.htm">
+    <meta name="robots" content="index,follow">
+    <style>
+        a {
+            text-decoration: none !important
+        }
+
+        .order-success {
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+
+        .validation-summary-errors {
+            color: #a94442;
+            border: 1px solid;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            margin-right: 15px;
+            padding-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var message = ""; function clickIE() { if (document.all) { (message); return false; } } function clickNS(e) { if (document.layers || (document.getElementById && !document.all)) { if (e.which == 2 || e.which == 3) { (message); return false; } } } if (document.layers) { document.captureEvents(Event.MOUSEDOWN); document.onmousedown = clickNS; } else { document.onmouseup = clickNS; document.oncontextmenu = clickIE; document.onselectstart = clickIE } document.oncontextmenu = new Function("return false")
+    </script>
+
+
+
+    <title>@ViewBag.Title - La Divad' Design</title>
+    @RenderSection("style", required: false)
+</head>
+<body>
+    <div class="background">
+        <header>
+            <div class="header-menu">
+                <div class="container">
+                    <div class="content">
+                        <div class="row">
+                            <div class="container">
+                                <ul>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.facebook.com/LaDivad.vn/" target="_blank">
+                                            <img src="~/Content/uploads/logo/icons8-facebook-f-20.png" class="img-fluid" alt="Liên kết mạng xã hội">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.instagram.com/ladivad_design/" target="_blank">
+                                            <img src="~/Content/uploads/logo/icons8-instagram-20.png" class="img-fluid" alt="Liên kết mạng xã hội">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.youtube.com/channel/UCoLcWGsBFflCx5A08YMoIwQ?view_as=subscriber" target="_blank">
+                                            <img src="~/Content/uploads/logo/icons8-play-button-20.png" class="img-fluid" alt="Liên kết mạng xã hội">
+                                        </a>
+                                    </li>
+
+                                    <li class="tell">
+                                        <a href="tel:0833993998" target="_blank">
+                                            <img src="~/Content/uploads/logo/phone.png"> 0833.993.998
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                        <img src="~/Content/uploads/logo/logo web trang.png" height="600" width="700" class="img-fluid logo-str" alt="Ladivad-design">
+                                        <img src="~/Content/uploads/logo/logo web den.png" class="img-fluid logo-scr" alt="ladivad-design">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <ul>
+                                    @Html.Action("_Nav", "Partial")
+                                    <li>
+                                        <a href="javascript:0"><img src="~/Content/public/frontend/images/search.png" class="img-fluid" alt="Ladivad-design"></a>
+                                        <div class="search">
+                                            @Html.Action("_Search", "Partial" , new { keyword = "", post = 0 })
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- menu-mobile -->
+            <div class="menu-mobile" style="display: none;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-9 col-sm-9">
+                            <div class="logo">
+                                <a href="index.htm">
+                                    <img src="~/Content/uploads/logo/logo web trang.png" style="color: black" class="img-fluid avarta-logo" alt="Ladivad-design">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-3 col-sm-3">
+                            <div class="header"><a href="#menu"><i class="fa fa-bars"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+                <nav id="menu">
+                    <ul>
+                        @Html.Action("_NavMb", "Partial")
+                    </ul>
+
+                </nav>
+            </div>
+            <!-- end menu-mobile -->
+        </header>
+        @RenderBody()
+        <br>
+    </div>
+    <footer class="footer-hb">
+        <div class="click-top"> <a href="javascript:0"><i class="fa fa-angle-double-up"></i></a> </div>
+        <div class="container">
+            <div class="content">
+                <div class="link"><a href="index.htm"><img src="~/Content/uploads/logo/logo-ladivad.png" width="50" height="50" class="img-fluid" alt="Ladivad-design">&ensp;La Divad' Design</a> </div>
+                <div class="info-footer">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="item">
+                                <div class="name"><br>CÔNG TY Cổ Phần Thiết Kế Kiến Trúc Và Nội Thất la Divad'</div>
+                                <div class="list-place">
+
+                                    <p style="color: #ffffff;"><img src="~/Content/public/frontend/images/place1.png" class="img-fluid" alt="Địa chỉ">Hà Nội: Số 177,Lê Lai, Hà Đông, Hà Nội</p>
+                                    <p style="color: #ffffff;"> <img src="~/Content/public/frontend/images/place2.png" class="img-fluid" alt="Số điện thoại"> Hotline: 0833993998</p>
+                                    <p style="color: #ffffff;"><img src="~/Content/public/frontend/images/place3.png" class="img-fluid" alt="Email">ladivad.arc@gmail.com</p>
+                                    <p style="color: #ffffff;"><img src="~/Content/public/frontend/images/place4.png" class="img-fluid" alt="Website">ladivad.vn</p>
+                                    <p style="color: #ffffff;"><img src="~/Content/public/frontend/images/place6.png" class="img-fluid" alt="Chứng chỉ">MSDN: 0109434894</p>
+                                </div>
+                                <div class="maps-link">
+                                    <a style="color: #ffffff;" href="" target="_blank">
+                                        <i class="fa-solid fa-map-location fa-2x"></i>Bản đồ chỉ dẫn
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="item">
+                                <div class="title-footer"><br>Tin Tức</div>
+                                <div class="list-new-ft">
+                                    <ul>
+                                        <li><a style="color: #ffffff;" href="/News/Details/bo-suu-tap-cac-mau-phong-khach">Thiết kế nội thất phòng khách</a></li>
+                                        <li><a style="color: #ffffff;" href="/News/Details/bo-suu-tap-cac-mau-phong-ngu">Thiết kế nội thất phòng ngủ</a></li>
+                                        <li><a style="color: #ffffff;" href="/News/Details/thiet-ke-phong-lam-viec-tao-cam-hung">Thiết kế nội thất phòng làm việc</a></li>
+                                        <li><a style="color: #ffffff;" href="/News/Details/mot-so-mau-thiet-ke-phong-ngu">Thiết kế nội thất phòng ngủ cho bé</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="item">
+                                <div class="col-item-3">
+                                    <div class="title-footer"><br> Fanpage </div>
+                                    <div class="list-new-ft">
+                                        <ul>
+                                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLaDivad.vn%2F&tabs&width=250&height=100&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=538906190214821" width="230" height="100" style="border: black;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="item">
+                                <div class="title-footer"><br>theo dõi chúng tôi</div>
+                                <div class="maps-link">
+                                    <div class="list-new-ft">
+                                        <ul class="list-inline">
+                                            <a style="color: #ffffff;" href="https://www.facebook.com/LaDivad.vn/" target="_blank">
+                                                <i class="fa-brands fa-facebook fa-2x"></i>
+                                            </a>
+                                            <a style="color: #ffffff;" href="https://www.instagram.com/ladivad_design/" target="_blank">
+                                                <i class="fab fa-instagram fa-2x"></i>
+                                            </a>
+                                            <a style="color: #ffffff;" href="https://www.youtube.com/channel/UCoLcWGsBFflCx5A08YMoIwQ?view_as=subscriber" target="_blank">
+                                                <i class="fab fa-youtube fa-2x"></i>
+                                            </a>
+                                            <a style="color: #ffffff;" href="https://www.behance.net/ladivadvn" target="_blank">
+                                                <i class="fab fa-behance fa-2x"></i>
+                                            </a>
+                                            <a style="color: #ffffff;" href="https://www.pinterest.com/Ladivadvn/" target="_blank">
+                                                <i class="fab fa-pinterest fa-2x"></i>
+                                            </a>
+                                        </ul>
+                                        <ul class="list-inline">
+
+                                            <li class="list-inline-item">
+                                                <a style="color: #ffffff;" href="tel:0833993998" target="_blank">
+                                                    <img style="width:50px" src="https://freepikpsd.com/file/2019/10/phone-icon-free-icons-and-telephone-icon-transparent-background-telephone-png-transparent-840_592.jpg" />...Tư vấn miễn phí
+                                                </a>
+                                            </li>
+                                            <script language="JavaScript" type="text/javascript">
+                                                TrustLogo("https://ladivad.vn/social/sectigo_trust_seal_sm_82x32.png", "CL1", "none");
+                                            </script>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reserved"> <span>Copyright © La Divad' Design 2020. All rights reserved</span> </div>
+    </footer>
+    @RenderSection("scripts", required: false)
+
+    <div class="hotline-phone-ring-wrap">
+        <div class="hotline-phone-ring">
+            <div class="hotline-phone-ring-circle"></div>
+            <div class="hotline-phone-ring-circle-fill"></div>
+            <div class="hotline-phone-ring-img-circle">
+                <a href="tel:0833993998" class="pps-btn-img">
+                    <img src="https://nguyenhung.net/wp-content/uploads/2019/05/icon-call-nh.png" alt="Gọi điện thoại" width="50">
+                </a>
+            </div>
+        </div>
+        <div class="hotline-bar">
+            <a href="tel:0833993998">
+                <span class="text-hotline">0833.993.998</span>
+            </a>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Content/public/frontend/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.active').closest('ul').closest('li').find('> a').addClass('active');
+            $('.active').closest('ul').closest('ul').closest('li').find('> a').addClass('active');
+        });
+
+    </script>
+    <script type="text/javascript" src="~/Content/public/frontend/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="~/Content/public/frontend/js/jquery.mmenu.all.js"></script>
+        <script type="text/javascript" src="~/Content/public/frontend/js/slick.min.js"></script>
+    <script src="~/Content/public/frontend/js/swiper.min.js"></script>
+    <script type="text/javascript" src="~/Content/public/frontend/js/main.js"></script>
+    <script type="text/javascript" src="~/Content/public/frontend/js/iscroll.js"></script>
+    <script type="text/javascript" src="~/Content/public/frontend/js/functions.js"></script>
+    <script>
+        function init() {
+            var vidDefer = document.getElementsByTagName('iframe');
+            for (var i = 0; i < vidDefer.length; i++) {
+                if (vidDefer[i].getAttribute('data-src')) {
+                    vidDefer[i].setAttribute('src', vidDefer[i].getAttribute('data-src'));
+                }
+            }
+        }
+        window.onload = init;
+    </script>
+
+    <script type="text/javascript">
+        $('.slider-for').slick({
+            autoplay: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            fade: true,
+            asNavFor: '.slider-nav',
+            prevArrow: '<span class="previous"><img src="/Content/public/frontend/images/left1.png"></span>',
+            nextArrow: '<span class="next"><img src="/Content/public/frontend/images/right1.png"></span>',
+        });
+        $('.slider-nav').slick({
+            autoplay: false,
+            arrow: false,
+            slidesToShow: 8,
+            slidesToScroll: 1,
+            responsive: [{
+                breakpoint: 1024,
+                settings: { slidesToShow: 3, slidesToScroll: 3, infinite: true, dots: true }
+            }, { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 2 } }, {
+                breakpoint: 480,
+                settings: { slidesToShow: 2, slidesToScroll: 1 }
+            }],
+            asNavFor: '.slider-for',
+            dots: false,
+            centerMode: false,
+            centerPadding: 0,
+            focusOnSelect: true
+        });
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

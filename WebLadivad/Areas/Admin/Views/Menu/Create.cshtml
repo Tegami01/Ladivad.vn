@@ -1,0 +1,82 @@
+﻿@model Model.DataModel.MenuDTO
+@{
+    ViewBag.Title = "Thêm mới menu";
+}
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content">
+    <div class="row ">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Thêm mới menu</h5>
+                </div>
+                <div class="card-body">
+
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="row alert alert-success order-success">
+                            @TempData["Message"]
+                        </div>
+                    }
+
+                    @using (Html.BeginForm("Create", "Menu", FormMethod.Post, new { enctype = "multipart/form-data", @onsubmit = "CreatePost(this);", @id = "create_new_category", @class = "new_product_category" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nhập tên menu</label>
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @placeholder = "Tên menu", @class = "form-control" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Nhập url</label>
+                                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @placeholder = "Ví dụ : chi-tiết", @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Chọn định dạng menu</label>
+                                    @Html.Action("_ParentMenu", "Menu", new {})
+                                    @Html.HiddenFor(model => model.ParentId, new { @id = "ParentId" })
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-10">
+
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <button name="button" class="btn btn-outline-success" type="submit">Lưu menu</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+
+        $("#add_parentId").change(function (e) {
+            $("#ParentId").val($(this).val());
+        });
+    </script>
+
+}

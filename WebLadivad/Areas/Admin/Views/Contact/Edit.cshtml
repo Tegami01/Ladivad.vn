@@ -1,0 +1,110 @@
+﻿@model Model.DataModel.ContactDTO
+@{
+    ViewBag.Title = "Liên hệ";
+}
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="row mt-3 ml-3 mr-3">
+                            <div class="col-xl-6 col-lg-9">
+                                <div><b>Họ và tên :</b></div>
+                                <span>@Html.DisplayFor(model => model.FullName, new { htmlAttributes = new { } })</span>
+                                <hr>
+                            </div>
+                            <div class="col-xl-6 col-lg-9 ">
+                                <div> <b>Số điện thoại :</b></div>
+                                <span>@Html.DisplayFor(model => model.PhoneNumber, new { htmlAttributes = new { } })</span>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row mt-3 ml-3 mr-3">
+                            <div class="col-xl-6 col-lg-9">
+                                <div><b>Email :</b></div>
+                                <span>@Html.DisplayFor(model => model.Email, new { htmlAttributes = new { } })</span>
+                                <hr>
+                            </div>
+                            <div class="col-xl-6 col-lg-9 ">
+                                <div> <b>Ngày giửi :</b></div>
+                                <span>@Html.DisplayFor(model => model.Now, new { htmlAttributes = new { } })</span>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row mt-3 ml-3 mr-3">
+                            <div class="col-xl-12 col-lg-9">
+                                <div> <b>Địa chỉ chi tiết :</b></div>
+                                <span>@Html.DisplayFor(model => model.Address, new { htmlAttributes = new { } })</span>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row mt-3 ml-3 mr-3">
+                            <div class="col-xl-12 col-lg-9">
+                                <div> <b>Ghi chú:</b></div>
+                                <span>@Html.DisplayFor(model => model.Note, new { htmlAttributes = new { } })</span>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row mt-3 ml-3 mr-3">
+                            <div class="col-xl-12 col-lg-9">
+                                <div> <b>Loại dự án:</b></div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        @Html.DisplayFor(model => model.project1, new { htmlAttributes = new { @class = "form-check-input" } })
+                                        Căn hộ
+                                    </div>
+                                    <div class="col-4">
+                                        @Html.DisplayFor(model => model.project2, new { htmlAttributes = new { @class = "form-check-input" } })
+                                        Biệt thự
+                                    </div>
+                                    <div class="col-4">
+                                        @Html.DisplayFor(model => model.project3, new { htmlAttributes = new { @class = "form-check-input" } })
+                                        Nhà Phố
+                                    </div>
+                                </div>
+
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row mt-3 ml-3 mr-3">
+                            <div class="col-xl-12 col-lg-9">
+                                <div> <b>Dịch vụ yêu cầu:</b></div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        @Html.DisplayFor(model => model.service1, new { htmlAttributes = new { @class = "form-check-input" } })
+                                        Thiết kế nội thất
+                                    </div>
+                                    <div class="col-4">
+                                        @Html.DisplayFor(model => model.service2, new { htmlAttributes = new { @class = "form-check-input" } })
+                                        Thiết kế ngoại thất
+                                    </div>
+                                    <div class="col-4">
+                                        @Html.DisplayFor(model => model.service3, new { htmlAttributes = new { @class = "form-check-input" } })
+                                        Cả 2
+                                    </div>
+                                </div>
+
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-7"></div>
+                        <div class="col-xl-2 col-lg-5">
+                            <a href="/Admin/Contact" class="btn btn-outline-dark">Quay lại</a>
+                        </div>
+
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿
+<div class="tab-pane " id="tab-9">
+    <div class="list-project">
+        <div class="container">
+            <div class="item">
+                <div class="row">
+                    <div class="col-md-6 col-small">
+                        <div class="small">
+                            <div class="row">
+                                @Html.Action("Ct4", "ProjectExterior", new { tag = "Project", project = "ngoai-that", projecttype = "chung-cu", take = 4, skip = 0 })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 col-big">
+                        @Html.Action("Ct5", "ProjectExterior", new { tag = "Project", project = "ngoai-that", projecttype = "chung-cu", take = 1, skip = 4 })
+                    </div>
+                    <div class="col-md-6 col-big">
+                        @Html.Action("Ct10", "ProjectExterior", new { tag = "Project", project = "ngoai-that", projecttype = "chung-cu", take = 1, skip = 5 })
+                    </div>
+
+                    <div class="col-md-6 col-small">
+                        <div class="small">
+                            <div class="row">
+                                @Html.Action("Ct9", "ProjectExterior", new { tag = "Project", project = "ngoai-that", projecttype = "chung-cu", take = 4, skip = 6 })
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

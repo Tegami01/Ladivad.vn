@@ -1,0 +1,141 @@
+﻿@model IEnumerable<Model.DataModel.NewsDTO>
+
+@{
+    ViewBag.Title = "Tin tức";
+}
+
+<main>
+    <section>
+        <div>
+            <div></div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section id="breadcrumbs">
+        <div class="container">
+            <div class="content">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="\"><img src="~/Content/public/frontend/images/home.png" class="img-fluid" alt="Dịch vụ"></a> </li>
+                    <li class="list-inline-item"><span style="color: white;font-size: 15px">Tin Tức</span></li>
+                </ul>
+            </div>
+        </div>
+        <section id="news">
+            <div class="container">
+                <div class="content">
+                    <div class="left">
+                        <div class="new-big">
+                            <div class="avarta"><img src="~/Content/uploads/about/banner.jpg" class="img-fluid" width="100%" alt="CÔNG TY Cổ Phần Kiến Trúc la Divad'"></div>
+                            <div class="info">
+                                <h2 class="tm-left"><a href="javascript:0"></a></h2>
+                                <h2 style="text-align: left;color: white" class="tm-left">
+                                    <a href="/AboutUs/Degin" title="Giới thiêu chi tiết về công ty thiết kế kiến trúc và nội thất La Divad' Design">Giới thiệu chi tiết về công ty thiết kế kiến trúc và nội thất La Divad' Design</a>
+                                </h2>
+                                <div class="readnow tm-left">
+                                    <a href="/AboutUs/Degin">xem ngay <img src="~/Content/public/frontend/images/read-right.png" class="img-fluid" alt="Giới thiêu chi tiết về công ty thiết kế kiến trúc và nội thất La Divad' Design"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-small" id="postPostAjax">
+                            @foreach (var item in Model)
+                            {
+                                <div class="item">
+                                    <div class="avarta"><a href="/News/Details/@item.Url"><img src="~/uploads/news/@item.ImgMain"></a></div>
+                                    <div class="info">
+                                        <h2 style="text-align: left;color: white">
+                                            <a href="/News/Details/@item.Url" title="@item.Title">@item.Title</a>
+                                        </h2>
+                                        <div class="desc">
+                                            <p style="text-align: justify;;font-size: 15px">@item.Desc</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="side-bar">
+                            <div class="item">
+                                <div class="title-side"><span>danh mục</span></div>
+                                <div class="list-room">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="item-room">
+                                                <div class="avarta">
+                                                    <a href=""><img src="~/Content/uploads/service/noithat.jpg" class="img-fluid" width="100%" alt="Phòng khách"></a>
+                                                </div>
+                                                <div class="info">
+                                                    <h3>
+                                                        <a href="" class="box first">Kiến Trúc</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="item-room">
+                                                <div class="avarta">
+                                                    <a href=""><img src="~/Content/uploads/service/ngoaithat..jpg" class="img-fluid" width="100%" alt="Phòng ngủ"></a>
+                                                </div>
+                                                <div class="info">
+                                                    <h3>
+                                                        <a href="" class="box first">Nội Thất</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="item-room">
+                                                <div class="avarta">
+                                                    <a href=""><img src="~/Content/uploads/service/ngoaithat..jpg" class="img-fluid" width="100%" alt="Phòng bếp"></a>
+                                                </div>
+                                                <div class="info">
+                                                    <h3>
+                                                        <a href="/Service/Exterior" class="box first">Báo Giá Kiến Trúc</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="item-room">
+                                                <div class="avarta">
+                                                    <a href=""><img src="~/Content/uploads/service/noithat.jpg" class="img-fluid" width="100%" alt="Phòng cho bé"></a>
+                                                </div>
+                                                <div class="info">
+                                                    <h3>
+                                                        <a href="/Service/Interior" class="box first">Báo Giá Nội Thất</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="title-side"><span>xem nhiều nhất</span></div>
+                                <div class="list-read">
+                                    @Html.Action("HotNews", "News")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!--<div class="moveto-top">
+        <a href="#top" class="movetotop-btn">
+            <img style="max-width: 70px" src="..\uploads\contact\up-arrow.png">
+        </a>
+    </div>-->
+</main>
+

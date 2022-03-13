@@ -1,0 +1,362 @@
+﻿@model Model.DataModel.NewsDTO
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+@section style{
+    @if (Model.Tags == "News")
+    {
+        <link href="~/Scripts/trumbowyg/ui/trumbowyg.min.css" rel="stylesheet">
+        <link href="~/Scripts/trumbowyg/ui/trumbowyg.table.min.css" rel="stylesheet">
+        <link href="~/Scripts/trumbowyg/ui/trumbowyg.colors.min.css" rel="stylesheet">
+        <link href="~/Scripts/trumbowyg/ui/trumbowyg.emoji.css" rel="stylesheet">
+    }
+    else
+    {
+        <link href="/Scripts/dropzone/min/basic.min.css" rel="stylesheet" />
+        <link href="/Scripts/dropzone/min/dropzone.min.css" rel="stylesheet" />
+    }
+
+
+
+
+
+
+    <style>
+
+        #img_main {
+            background: #ddd;
+            width: 80%;
+            height: 281px;
+            display: block;
+        }
+
+        #img_top {
+            background: #ddd;
+            width: 100%;
+            height: 600PX;
+            display: block;
+        }
+    </style>
+}
+
+
+@section scripts{
+
+    @if (Model.Tags == "News")
+    {
+        <script src="~/Scripts/trumbowyg/trumbowyg.js"></script>
+        <script src="~/Scripts/trumbowyg/trumbowyg.emoji.min.js"></script>
+        <script src="~/Scripts/trumbowyg/trumbowyg.upload.js"></script>
+        <script src="~/Scripts/trumbowyg/trumbowyg.colors.min.js"></script>
+        <script src="~/Scripts/trumbowyg/trumbowyg.pasteembed.js"></script>
+        <script src="~/Scripts/trumbowyg/trumbowyg.base64.min.js"></script>
+        <script src="~/Scripts/trumbowyg/trumbowyg.table.min.js"></script>
+        <script>
+
+            $('#NewsDetail').trumbowyg({
+                autogrow: true
+            });
+
+        </script>
+    }
+    else
+    {
+
+        <script src="~/Scripts/admin/jquery.validate.min.js"></script>
+        <script src="~/Scripts/admin/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/admin/jquery-ui.min.js"></script>
+
+
+        <!-- DropZone -->
+        <script src="~/Scripts/dropzone/min/dropzone.min.js"></script>
+
+        <script src="~/Scripts/admin/fileuploads.js"></script>
+
+        <script>
+            jindokuyo.initUpload();
+
+            $("#add_projecttype").change(function (e) {
+                $("#ProjectType").val($(this).val());
+            });
+
+            $("#add_project").change(function (e) {
+                $("#Project").val($(this).val());
+            });
+        </script>
+    }
+
+
+
+    <script>
+        function img_mainUrl(input) {
+            $('#img_main')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+        }
+
+        function img_topUrl(input) {
+            $('#img_top')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+        }
+    </script>
+
+
+
+}
+
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Chỉ sửa bài viết </h5>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="row">
+                            @if (TempData["Message"] != null)
+                            {
+                                <div class="row alert alert-success order-success" role="alert">
+                                    @TempData["Message"]
+                                </div>
+                            }
+                        </div>
+
+                        @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                            @Html.HiddenFor(model => model.Id)
+                            <div class="row mt-3 ml-3 mr-3">
+                                <div class="col-xl-12 col-lg-9">
+                                    <div> <b>Ảnh banner top :</b></div>
+                                    <div class="text-center">
+                                        <img src="~/uploads/news/@Model.Imgs" class="rounded mx-auto d-block img-fluid" id="img_top" alt="your image">
+                                        <br>
+                                        <input name="imgTop" type="file" id="img_file" onChange="img_topUrl(this);">
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row mt-3 ml-3 mr-3">
+                                <div class="col-xl-6 col-lg-9">
+                                    <div><b>Tiêu đề :</b></div>
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @placeholder = "Tiêu đề", @class = "form-control" } })
+                                    <hr>
+                                    <div> <b>Đường dẫn bài viết :</b></div>
+                                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @placeholder = "Ví dụ : chi-tiet", @class = "form-control" } })
+                                    <hr>
+                                    <div> <b>Định dạng bài viết  :</b></div>
+                                    @Html.HiddenFor(model => model.Tags)
+                                    @if (@Model.Tags == "News")
+                                    {
+                                        <span>Tin Tức</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Dự án</span>
+                                    }
+                                    <hr>
+                                    <div><b>Đoạng miêu tả ngắn :</b></div>
+                                    @Html.TextAreaFor(model => model.Desc, new { @placeholder = "Nhập đoạn miêu tả ngắn", @class = "form-control", @id = "exampleFormControlTextarea1", @rows = "4" })
+
+                                </div>
+                                <div class="col-xl-6 col-lg-9 ">
+                                    <div> <b>Ảnh đại diện :</b></div>
+                                    <div class="text-center">
+                                        <img src="~/uploads/news/@Model.ImgMain" class="rounded mx-auto d-block img-fluid" id="img_main" alt="your image">
+                                        <br>
+                                        @Html.HiddenFor(model => model.ImgMain)
+                                        <input name="imgMain" type="file" id="img_file" onChange="img_mainUrl(this);">
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row mt-3 ml-3 mr-3">
+                                <hr />
+                                <div class="col-xl-6 col-lg-9">
+
+                                    <div> <b>Ngày viết :</b></div>
+                                    <span>@Html.DisplayFor(model => model.CreatedDate)</span>
+
+
+                                    
+                                    
+                                </div>
+                                <div class="col-xl-6 col-lg-9 ">
+                                    <div> <b>Tin tức hot :</b></div>
+                                    @Html.EditorFor(model => model.HotNews)
+                                    <label>Chỉ cho từ 3 đến 5 bài viết để trang tin tức đẹp hơn</label>
+
+                                </div>
+                                <hr />
+                            </div>
+                            <div class="row mt-3 ml-3 mr-3">
+                                <div class="col-xl-6 col-lg-9">
+                                   
+                                    @if (Model.ProjectType == null)
+                                    {
+                                        <select class="form-select" aria-label="Default select example" id="add_projecttype">
+                                            <option selected>Chọn định dạng dự án</option>
+                                            <option value="biet-thu">Biệt thự</option>
+                                            <option value="chung-cu">Chung cư</option>
+                                            <option value="nha-pho">Nhà phố</option>
+                                        </select>
+                                    }
+                                    else if (Model.ProjectType == "biet-thu")
+                                    {
+                                        <select class="form-select" aria-label="Default select example" id="add_projecttype">
+                                            <option selected value="biet-thu">Biệt thự</option>
+                                            <option value="chung-cu">Chung cư</option>
+                                            <option value="nha-pho">Nhà phố</option>
+                                        </select>
+                                    }
+                                    else if (Model.ProjectType == "chung-cu")
+                                    {
+                                        <select class="form-select" aria-label="Default select example" id="add_projecttype">
+                                            <option value="biet-thu">Biệt thự</option>
+                                            <option selected value="chung-cu">Chung cư</option>
+                                            <option value="nha-pho">Nhà phố</option>
+                                        </select>
+                                    }
+                                    else if (Model.ProjectType == "nha-pho")
+                                    {
+                                        <select class="form-select" aria-label="Default select example" id="add_projecttype">
+                                            <option value="biet-thu">Biệt thự</option>
+                                            <option value="chung-cu">Chung cư</option>
+                                            <option selected value="nha-pho">Nhà phố</option>
+                                        </select>
+                                    }
+                                    @Html.HiddenFor(model => model.ProjectType, new { @id = "ProjectType" })
+                                    <hr>
+                                </div>
+                                <div class="col-xl-6 col-lg-9 ">
+                                    @if (Model.Project == null)
+                                    {
+                                        <select class="form-select" aria-label="Default select example" id="add_project">
+                                            <option selected>Chọn kiểu dự án</option>
+                                            <option value="noi-that">Nội thất</option>
+                                            <option value="ngoai-that">Ngoại thất</option>
+                                        </select>
+                                    }
+                                    else if (Model.Project == "noi-that")
+                                    {
+                                        <select class="form-select" aria-label="Default select example" id="add_project">
+                                            <option selected value="noi-that">Nội thất</option>
+                                            <option value="ngoai-that">Ngoại thất</option>
+                                        </select>
+                                    }
+                                    else if (Model.Project == "ngoai-that")
+                                    {
+                                        <select class="form-select" aria-label="Default select example" id="add_project">
+                                            <option  value="noi-that">Nội thất</option>
+                                            <option selected value="ngoai-that">Ngoại thất</option>
+                                        </select>
+                                    }
+                                    @Html.HiddenFor(model => model.Project, new { @id = "Project" })
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row mt-3 ml-3 mr-3">
+                                <div class="col-xl-12 col-lg-9">
+                                    @if (@Model.Tags == "News")
+                                    {
+                                        <div> <b>Chi tiết bài viết :</b></div>
+                                        @Html.TextAreaFor(model => model.Detail, new { @id = "NewsDetail" })
+                                    }
+                                    else
+                                    {
+                                        <hr />
+                                        <div id="jindoUpload" class="fallback dropzone"></div>
+                                        <!-- template-preview -->
+                                        <div id="template-preview" style="display: none">
+                                            <div class="dz-preview dz-file-preview">
+                                                <div class="dz-image">
+                                                    <img data-dz-thumbnail class="image-alt" />
+                                                </div>
+                                                <div class="dz-details">
+                                                    <div class="dz-size">
+                                                        <span data-dz-size></span>
+                                                    </div>
+                                                    <div class="dz-filename">
+                                                        <span data-dz-name hidden></span>
+                                                    </div>
+                                                    <span data-dz-name hidden></span>
+                                                    <a href="javascript:undefined;" data-dz-remove class="dz-remove">
+                                                        <span class="tooltip-container"><span class="tooltip-label">Xóa ảnh này</span></span>
+                                                    </a>
+                                                </div>
+                                                <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+                                                <div class="dz-error-message"><span data-dz-errormessage></span></div>
+                                                <div class="dz-success-mark">
+                                                    <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                                                        <title>Check</title>
+                                                        <defs></defs>
+                                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                                            <path d="M23.5,31.8431458 L17.5852419,25.9283877 C16.0248253,24.3679711 13.4910294,24.366835 11.9289322,25.9289322 C10.3700136,27.4878508 10.3665912,30.0234455 11.9283877,31.5852419 L20.4147581,40.0716123 C20.5133999,40.1702541 20.6159315,40.2626649 20.7218615,40.3488435 C22.2835669,41.8725651 24.794234,41.8626202 26.3461564,40.3106978 L43.3106978,23.3461564 C44.8771021,21.7797521 44.8758057,19.2483887 43.3137085,17.6862915 C41.7547899,16.1273729 39.2176035,16.1255422 37.6538436,17.6893022 L23.5,31.8431458 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z" id="Oval-2" stroke-opacity="0.198794158" stroke="#747474" fill-opacity="0.816519475" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                                <div class="dz-error-mark">
+                                                    <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                                                        <title>Error</title>
+                                                        <defs></defs>
+                                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                                                            <g id="Check-+-Oval-2" sketch:type="MSLayerGroup" stroke="#747474" stroke-opacity="0.198794158" fill="#FFFFFF" fill-opacity="0.816519475">
+                                                                <path d="M32.6568542,29 L38.3106978,23.3461564 C39.8771021,21.7797521 39.8758057,19.2483887 38.3137085,17.6862915 C36.7547899,16.1273729 34.2176035,16.1255422 32.6538436,17.6893022 L27,23.3431458 L21.3461564,17.6893022 C19.7823965,16.1255422 17.2452101,16.1273729 15.6862915,17.6862915 C14.1241943,19.2483887 14.1228979,21.7797521 15.6893022,23.3461564 L21.3431458,29 L15.6893022,34.6538436 C14.1228979,36.2202479 14.1241943,38.7516113 15.6862915,40.3137085 C17.2452101,41.8726271 19.7823965,41.8744578 21.3461564,40.3106978 L27,34.6568542 L32.6538436,40.3106978 C34.2176035,41.8744578 36.7547899,41.8726271 38.3137085,40.3137085 C39.8758057,38.7516113 39.8771021,36.2202479 38.3106978,34.6538436 L32.6568542,29 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z" id="Oval-2" sketch:type="MSShapeGroup"></path>
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                    }
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                @if (@Model.Status == true)
+                                {
+                                    <div class="col-9">
+                                        <div class="col-xl-6 col-lg-9 ">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <a name="button" href="/Admin/News" class="btn btn-outline-secondary" type="submit">Quay lại</a>
+                                            <button name="button" id="btn-save" class="btn btn-outline-success" type="submit">Chỉ sửa bài viết</button>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-10">
+                                        <div class="col-xl-6 col-lg-9 ">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <button name="button" id="btn-save" class="btn btn-outline-success" type="submit">Thêm mới bài viết</button>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

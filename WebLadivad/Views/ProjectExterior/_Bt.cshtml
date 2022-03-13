@@ -1,0 +1,32 @@
+﻿
+<div class="tab-pane active show" id="tab-7">
+    <div class="list-project">
+        <div class="container" id="postProjectAjax">
+            <div class="item">
+                <div class="row">
+                    <div class="col-md-6 col-small">
+                        <div class="small">
+                            <div class="row">
+                                @Html.Action("Bt4", "ProjectExterior", new { tag = "Project", project = "ngoai-that", projecttype = "biet-thu", take = 4, skip = 0 })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-big">
+                        @Html.Action("Bt5", "ProjectExterior", new { tag = "Project", project = "ngoai-that", projecttype = "biet-thu", take = 1, skip = 4 })
+                    </div>
+                    <div class="col-md-6 col-big">
+                        @Html.Action("Bt10", "ProjectExterior", new { tag = "Project", project = "ngoai-that", projecttype = "biet-thu", take = 1, skip = 5 })
+                    </div>
+                    <div class="col-md-6 col-small">
+                        <div class="small">
+                            <div class="row">
+                                @Html.Action("Bt9", "ProjectExterior", new { tag = "Project", project = "ngoai-that", projecttype = "biet-thu", take = 4, skip = 6 })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,17 @@
+﻿
+
+@model IEnumerable<Model.DataModel.NewsDTO>
+
+@foreach (var item in Model)
+{
+    <div class="swiper-slide" style="width: 516.667px; margin-right: 25px;">
+        <div class="item">
+            <div class="avarta"><a href="/Project/Details/@item.Url"><img src="~/uploads/news/@item.ImgMain" class="img-fluid" width="100%"></a></div>
+            <div class="info">
+                <h3 style="color: #ffffff; text-align: left">
+                    <a href="/Project/Details/@item.Url" >@item.Title</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+}

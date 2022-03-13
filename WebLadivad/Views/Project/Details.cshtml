@@ -1,0 +1,62 @@
+﻿@model Model.DataModel.NewsDTO
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<main>
+    <h4 style="display: none;">CÔNG TY Cổ Phần Kiến Trúc la Divad'</h4>
+    <section id="banner-cate">
+        <div class="avarta"><img src="~/uploads/news/@Model.Imgs" class="img-fluid" width="100%" alt="CÔNG TY Cổ Phần Kiến Trúc la Divad'"></div>
+    </section>
+    <section id="breadcrumbs">
+        <div class="container">
+            <div class="content">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="/"><img src="~/Content/public/frontend/images/home.png" class="img-fluid" alt="CÔNG TY Cổ Phần Kiến Trúc La Divad'"></a></li>
+                    <li class="list-inline-item"><a style="color: white" href="">Dự án</a></li>
+                    <li class="list-inline-item"><span style="color: white">thiết kế nội thất biệt thự</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="project-detail">
+        <div class="container">
+            <div class="content">
+                @Html.Action("Thumbs" , "Project" , new {id = Model.Id})
+                <div class="info-project">
+                    <h1>@Model.Title</h1>
+                    <div class="desc">
+                        <span style="font-size:16px">
+                            <textarea class="form-control valid" cols="20" data-val="true" style="height: 500px; background-color: #323232; color: #ffffff; border:none;" id="exampleFormControlTextarea1" disabled rows="4" aria-required="true" aria-invalid="false" aria-describedby="exampleFormControlTextarea1-error">@Model.Desc</textarea>
+
+                        </span>
+                        
+                    </div>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FLaDivad.vn%2F&amp;tabs&amp;width=500&amp;height=300&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId=538906190214821" width="500" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="box-news" style="margin-bottom: 40px;padding-bottom: 0;background: transparent;padding-top: 0;" class="">
+        <div class="container">
+            <div class="content">
+                <div class="title"><h2><span style="color: white">dự án liên quan</span></h2></div>
+                <div class="swiper-container slide-news swiper-container-horizontal">
+                    <div class="swiper-wrapper" style="transform: translate3d(-2708.33px, 0px, 0px); transition-duration: 0ms;">
+                      @Html.Action("SilderFooter","Project")
+     
+                    </div>
+                    <div class="swiper-button-next">
+                        <a href="javascript:0"><img src="~/Content/public/frontend/images/right1.png" class="img-fluid" alt="Right"></a>
+                    </div>
+                    <div class="swiper-button-prev">
+                        <a href="javascript:0"><img src="~/Content/public/frontend/images/left1.png" class="img-fluid" alt="Left"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>

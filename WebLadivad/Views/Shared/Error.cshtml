@@ -1,0 +1,115 @@
+﻿<style type="text/css">
+
+    #error {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: url("../../Content/uploads/files/biet-thu-thai-nguyen/bt-tv%20(3).jpg") no-repeat center;
+        background-size: cover;
+        color: #fff;
+    }
+
+		#error:after {
+		  content: "";
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  top: 0;
+		  left: 0;
+		  background: #000000;
+		  opacity: .6;
+		}
+
+		#error .content {
+		  position: relative;
+		  z-index: 2;
+		}
+
+		#error .avar {
+		  padding: 80px 0 40px 0;
+		}
+
+		#error h1 {
+		  font-size: 60px;
+		  text-transform: uppercase;
+		  font-weight: 600;
+		  line-height: initial;
+		}
+
+		#error p {
+		  font-size: 25px;
+		  margin-bottom: 30px;
+		  text-align: center;
+		}
+
+		#error .gohome a {
+		  display: inline-block;
+		  height: 60px;
+		  line-height: 60px;
+		  color: black;
+		  padding: 0 50px;
+		  background: wheat ;
+		  font-size: 20px;
+		  font-weight: 600;
+		  text-transform: uppercase;
+		}
+
+		#error .gohome a:hover {
+		  color: grey;
+		  background: navajowhite;
+		}
+		@media  screen and (max-width: 767px) {
+		  #error .avar {
+		        padding: 40px 0;
+		    }
+
+		    #error .avar img {
+		        max-height: 100px;
+		    }
+
+		    #error h1 {
+		        font-size: 20px;
+		    }
+
+		    #error p {
+		        font-size: 18px;
+		        margin-bottom: 20px;
+		    }
+
+		    #error .gohome a {
+		        height: 45px;
+		        line-height: 45px;
+		        padding: 0 20px;
+		        border-radius: 4px;
+		        font-size: 16px;
+		    }
+		}
+</style>
+
+
+
+<main>
+    <section id="error">
+        <div class="container">
+            <div class="content text-center">
+
+                <div class="avar">
+                    <img src="https://tpl.gco.vn/hungphu/images/404.png" width="250px" height="150px" class="img-fluid" alt="">
+                    <h2 style="color: white">Trang này chúng tôi đang cập nhật xin vui lòng quay lại sau</h2>
+                    <h2 style="color: white">Không tìm thấy trang</h2>
+                </div>
+
+                <!--
+                                    <p>Trang đã bị xóa hoặc địa chỉ URL không đúng</p>
+                -->
+                <div class="gohome" style="color: white;font-size: 24px"><a title="" href="index.htm">Quay về trang chủ</a></div>
+            </div>
+        </div>
+    </section>
+
+</main>

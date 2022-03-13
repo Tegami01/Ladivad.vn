@@ -1,0 +1,6 @@
+﻿
+@using (Html.BeginForm("Index", "Project", FormMethod.Get))
+{
+    @Html.TextBox("keyword", null, new { @class = "form-control", @placeholder = "Tìm kiếm ..." })
+    <input type="hidden" name="keyword" class="btn btn-outline-secondary" value="0" />
+}

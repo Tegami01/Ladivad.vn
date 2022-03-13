@@ -1,0 +1,138 @@
+﻿@model Model.DataModel.NewsDTO
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@section style{
+    <style>
+        #img_main {
+            background: #ddd;
+            width: 30%;
+            height: 250px;
+            display: block;
+        }
+
+        #img_top {
+            background: #ddd;
+            width: 100%;
+            height: 400px;
+            display: block;
+        }
+    </style>
+}
+
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $("#add_tagtype").change(function (e) {
+            $("#TagType").val($(this).val());
+        });
+
+        function img_mainUrl(input) {
+            $('#img_main')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+        }
+
+        function img_topUrl(input) {
+            $('#img_top')[0].src = (window.URL ? URL : webkitURL).createObjectURL(input.files[0]);
+            $('#btn-save').attr("disabled", false);
+        }
+    </script>
+
+}
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Edit Profile</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data", @onsubmit = "CreatePost(this);", @id = "create_new_category", @class = "new_product_category" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <b>Nhập tiêu đề :</b>
+                            <br />
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @placeholder = "Tiêu đề", @class = "form-control" } })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="form-select" aria-label="Default select example" id="add_tagtype">
+                                        <option selected>Chọn định dạng bài viết</option>
+                                        <option value="News">Tin tức</option>
+                                        <option value="Project">Dự án</option>
+                                    </select>
+                                    @Html.HiddenFor(model => model.Tags, new { @id = "TagType" })
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <b>Nhập url :</b>
+                            <br />
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @placeholder = "Ví dụ : chi-tiet", @class = "form-control" } })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <b>Đoạn miêu tả ngắn :</b>
+                                <br />
+                                <div class="form-group">
+                                    <div>
+                                        @Html.TextAreaFor(model => model.Desc, new { @placeholder = "Nhập đoạn miêu tả ngắn", @class = "form-control", @id = "exampleFormControlTextarea1", @rows = "3" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <b>Ảnh đại diện</b>
+                        <div class="text-center">
+                            <img src="~/Content/no-image-800x600.png" class="rounded mx-auto d-block img-fluid" id="img_main" alt="your image">
+                            <br>
+                            <input name="imgMain" type="file" id="img_file" onChange="img_mainUrl(this);">
+                        </div>
+
+                        <b>Ảnh baner top</b>
+                        <div class="text-center">
+                            <img src="~/Content/no-image-800x600.png" class="rounded mx-auto d-block img-fluid" id="img_top" alt="your image">
+                            <br>
+                            <input name="imgTop" type="file" id="img_file" onChange="img_topUrl(this);">
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="col-xl-6 col-lg-9 ">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <button name="button" id="btn-save" class="btn btn-outline-success" disabled type="submit">Tiếp tục</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

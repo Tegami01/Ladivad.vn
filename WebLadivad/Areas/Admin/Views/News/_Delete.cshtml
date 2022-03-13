@@ -1,0 +1,25 @@
+﻿@model Model.DataModel.NewsDTO
+
+
+
+@using (Html.BeginForm("Delete", "News", FormMethod.Post, new { }))
+{
+    @Html.HiddenFor(m => m.Id)
+    <div class="modal fade" id="exampleModal-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thông báo !!!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img style="width: 200px ; height:100px" src="~/uploads/news/@Model.ImgMain" /> sẽ bị xóa vĩnh viễn
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

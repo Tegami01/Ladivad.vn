@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Model.DataModel.MenuDTO>
+
+<div class="table-responsive">
+    <table class="table">
+
+        <thead class=" text-secondary">
+        <th>
+            Tên
+        </th>
+        <th>
+            Url
+        </th>
+        <th class="text-right">
+            
+        </th>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Url
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-outline-secondary" href="/Admin/Menu/Edit/@item.Id">
+                            Chi tiết
+                        </a>
+                        <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.Id">
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+                @Html.Action("Delete", "Menu", new { id = item.Id })
+            }
+
+        </tbody>
+    </table>
+
+</div>

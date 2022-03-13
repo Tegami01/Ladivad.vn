@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link" href="#pablo">
+            <i class="now-ui-icons media-1_button-power"></i>
+            <p>
+                <span class="d-lg-none d-md-block">Logout</span>
+            </p>
+        </a>
+    }
+}
+else
+{
+}

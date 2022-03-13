@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Model.DataModel.NewsDTO>
+
+<table class="table">
+    <thead class=" text-secondary">
+    <th>
+        Tiêu đề
+    </th>
+    <th>
+        View
+    </th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.View
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

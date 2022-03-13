@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Model.DataModel.SliderDTO>
+
+@foreach (var item in Model)
+{
+    <div class="swiper-slide">
+        <div class="item">
+            <div class="avarta">
+                <a href="">
+                    <img src="~/uploads/slides/@item.Img" class="img-fluid" width="100%" alt="Banner @item.Id">
+                </a>
+            </div>
+        </div>
+    </div>
+}

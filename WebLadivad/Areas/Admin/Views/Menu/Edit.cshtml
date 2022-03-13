@@ -1,0 +1,79 @@
+﻿@model Model.DataModel.MenuDTO
+@{
+    ViewBag.Title = "Chi tiết Menu";
+}
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="content">
+    <div class="row ">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Chi tiết menu</h5>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="row alert alert-success order-success" role="alert">
+                            @TempData["Message"]
+                        </div>
+                    }
+
+                    @using (Html.BeginForm("Edit", "", FormMethod.Post, new { @autocomplete = "off", @class = "edit_customer" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        <div class="row mt-3 ml-3 mr-3">
+                            <div class="col-xl-6 col-lg-9">
+                                <div> <b>Tên menu :</b></div>
+                                <br />
+                                <span>@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })</span>
+                                <hr>
+                            </div>
+                            <div class="col-xl-6 col-lg-9 ">
+                                <div> <b>Url :</b></div>
+                                <br />
+                                <span>@Html.EditorFor(model => model.Url, new { htmlAttributes = new { @placeholder = "Ví dụ : chi/tiet", @class = "form-control" } })</span>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <a  class="btn btn-outline-secondary" href="/Admin/Menu">Quay lại</a>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <button name="button" class="btn btn-outline-success" type="submit">Lưu menu</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    }
+                    @if (Model.ParentId == null)
+                    {
+                        <div class="row mt-3 ml-3 mr-3">
+                            <div class="row">
+                                <b>
+                                    Menu con của @Model.Name
+                                </b>
+                               
+                            </div>
+                            @Html.Action("_ParentList", "Menu", new { id = Model.Id })
+                        </div>
+                    }
+                    else { }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

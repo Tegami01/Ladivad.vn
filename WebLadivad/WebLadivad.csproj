@@ -1,0 +1,1577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B67594D5-17CF-4731-B9AE-A6FD6457B093}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebLadivad</RootNamespace>
+    <AssemblyName>WebLadivad</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44314</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=6.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.6.3.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=6.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.6.0.0\lib\net472\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=6.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.6.1.0\lib\net472\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.2.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="X.PagedList, Version=7.6.0.0, Culture=neutral, PublicKeyToken=00b6c4f97602e5e8, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.7.6.0\lib\net461\X.PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="X.PagedList.Mvc, Version=7.6.0.0, Culture=neutral, PublicKeyToken=c6e0b5b21f916f4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\X.PagedList.Mvc.7.6.0\lib\net461\X.PagedList.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IocConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PartialController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
+    <Content Include="Areas\Admin\Views\Partial\_LoginPartial.cshtml" />
+    <Compile Include="ConfigHelper.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ProjectExteriorController.cs" />
+    <Compile Include="Controllers\ProjectInteriorController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServicesModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Recaptcha\ICaptchaValidationService.cs" />
+    <Compile Include="Services\Recaptcha\InvisibleRecaptchaValidationService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\Home\assets\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\Home\assets\css\now-ui-dashboard.css" />
+    <Content Include="Content\Admin\Home\assets\css\now-ui-dashboard.min.css" />
+    <Content Include="Content\Admin\Home\assets\demo\demo.css" />
+    <Content Include="Content\Admin\Home\assets\demo\demo.js" />
+    <Content Include="Content\Admin\Home\assets\img\apple-icon.png" />
+    <Content Include="Content\Admin\Home\assets\img\bg5.jpg" />
+    <Content Include="Content\Admin\Home\assets\img\favicon.png" />
+    <Content Include="Content\Admin\Home\assets\img\header.jpg" />
+    <Content Include="Content\Admin\Home\assets\img\mike.jpg" />
+    <Content Include="Content\Admin\Home\assets\img\now-logo.png" />
+    <Content Include="Content\Admin\Home\assets\js\core\bootstrap.min.js" />
+    <Content Include="Content\Admin\Home\assets\js\core\jquery.min.js" />
+    <Content Include="Content\Admin\Home\assets\js\core\popper.min.js" />
+    <Content Include="Content\Admin\Home\assets\js\now-ui-dashboard.js" />
+    <Content Include="Content\Admin\Home\assets\js\now-ui-dashboard.min.js" />
+    <Content Include="Content\Admin\Home\assets\js\plugins\bootstrap-notify.js" />
+    <Content Include="Content\Admin\Home\assets\js\plugins\chartjs.min.js" />
+    <Content Include="Content\Admin\Home\assets\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\banner.jpg" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ar.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ar.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\bg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\bg.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\bn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\bn.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\by.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\by.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ca.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ca.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\cs.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\cs.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\da.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\da.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\de.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\de.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\el.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\el.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\es.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\es.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\es_ar.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\es_ar.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\et.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\et.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\fa.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\fa.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\fi.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\fi.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\fr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\fr.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\he.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\he.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\hr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\hr.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\hu.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\hu.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\id.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\id.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\it.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\it.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ja.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ja.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ko.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ko.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\lt.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\lt.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\mn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\mn.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\my.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\my.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\nl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\nl.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\no_nb.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\no_nb.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ph.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ph.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\pl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\pl.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\pt.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\pt.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\pt_br.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\pt_br.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ro.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ro.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\rs.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\rs.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\rs_latin.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\rs_latin.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ru.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ru.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\sk.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\sk.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\sl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\sl.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\sq.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\sq.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\sv.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\sv.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\th.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\th.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\tr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\tr.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ua.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\ua.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\vi.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\vi.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\zh_cn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\zh_cn.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\zh_tw.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\langs\zh_tw.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\base64\trumbowyg.base64.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\base64\trumbowyg.base64.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\cleanpaste\trumbowyg.cleanpaste.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\cleanpaste\trumbowyg.cleanpaste.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\colors\trumbowyg.colors.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\colors\trumbowyg.colors.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\colors\ui\trumbowyg.colors.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\colors\ui\trumbowyg.colors.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\emoji\trumbowyg.emoji.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\emoji\trumbowyg.emoji.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\emoji\ui\trumbowyg.emoji.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\emoji\ui\trumbowyg.emoji.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\fontfamily\trumbowyg.fontfamily.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\fontfamily\trumbowyg.fontfamily.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\fontsize\trumbowyg.fontsize.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\fontsize\trumbowyg.fontsize.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\giphy\trumbowyg.giphy.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\giphy\trumbowyg.giphy.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\giphy\ui\trumbowyg.giphy.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\giphy\ui\trumbowyg.giphy.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\highlight\trumbowyg.highlight.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\highlight\trumbowyg.highlight.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\highlight\ui\trumbowyg.highlight.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\highlight\ui\trumbowyg.highlight.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\history\trumbowyg.history.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\history\trumbowyg.history.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\indent\trumbowyg.indent.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\indent\trumbowyg.indent.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\insertaudio\trumbowyg.insertaudio.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\insertaudio\trumbowyg.insertaudio.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\lineheight\trumbowyg.lineheight.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\lineheight\trumbowyg.lineheight.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mathml\trumbowyg.mathml.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mathml\trumbowyg.mathml.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mathml\ui\trumbowyg.mathml.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mathml\ui\trumbowyg.mathml.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mention\trumbowyg.mention.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mention\trumbowyg.mention.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mention\ui\trumbowyg.mention.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mention\ui\trumbowyg.mention.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\noembed\trumbowyg.noembed.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\noembed\trumbowyg.noembed.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\pasteembed\trumbowyg.pasteembed.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\pasteembed\trumbowyg.pasteembed.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\pasteimage\trumbowyg.pasteimage.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\pasteimage\trumbowyg.pasteimage.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\preformatted\trumbowyg.preformatted.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\preformatted\trumbowyg.preformatted.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\resizimg\trumbowyg.resizimg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\resizimg\trumbowyg.resizimg.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\ruby\trumbowyg.ruby.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\ruby\trumbowyg.ruby.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\specialchars\trumbowyg.specialchars.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\specialchars\trumbowyg.specialchars.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\specialchars\ui\trumbowyg.specialchars.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\specialchars\ui\trumbowyg.specialchars.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\table\trumbowyg.table.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\table\trumbowyg.table.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\table\ui\trumbowyg.table.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\table\ui\trumbowyg.table.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\template\trumbowyg.template.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\template\trumbowyg.template.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\upload\trumbowyg.upload.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\upload\trumbowyg.upload.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\trumbowyg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\trumbowyg.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\ui\icons.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\ui\trumbowyg.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\ui\trumbowyg.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\css\main.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\core\dark-theme.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\core\default.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\core\simple.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\index.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\js\highlight.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\js\loader.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\js\runExampleCode.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\allowtagsfrompaste.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\base64.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\cleanpaste.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\colors.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\emoji.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\fontfamily.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\fontsize.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\giphy.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\highlight.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\history.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\indent.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\insertaudio.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\lineheight.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\mathml.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\mention.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\noembed.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\pasteembed.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\pasteimage.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\preformatted.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\resizimg.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\ruby.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\specialchars.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\table.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\template.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\demos\plugins\upload.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\documentation.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\documentation\core\index.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\documentation\index.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\documentation\plugins\index.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\favicon.png" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\gulpfile.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\humans.txt" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\img\beer.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\img\globe.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\img\introduction-customizable.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\img\introduction-html.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\img\introduction-lightweight.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\img\logo-doc.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\img\logo.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\index.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\js\main.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\js\vendor\highlight.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\js\vendor\jquery-3.3.1.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\robots.txt" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\test.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ar.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ar.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\bg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\bg.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\bn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\bn.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\by.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\by.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ca.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ca.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\cs.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\cs.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\da.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\da.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\de.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\de.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\el.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\el.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\es.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\es.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\es_ar.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\es_ar.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\et.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\et.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\fa.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\fa.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\fi.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\fi.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\fr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\fr.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\he.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\he.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\hr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\hr.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\hu.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\hu.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\id.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\id.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\it.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\it.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ja.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ja.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ko.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ko.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\lt.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\lt.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\mn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\mn.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\my.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\my.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\nl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\nl.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\no_nb.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\no_nb.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ph.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ph.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\pl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\pl.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\pt.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\pt.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\pt_br.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\pt_br.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ro.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ro.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\rs.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\rs.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\rs_latin.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\rs_latin.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ru.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ru.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\sk.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\sk.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\sl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\sl.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\sq.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\sq.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\sv.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\sv.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\th.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\th.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\tr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\tr.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ua.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\ua.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\vi.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\vi.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\zh_cn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\zh_cn.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\zh_tw.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\langs\zh_tw.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\base64\trumbowyg.base64.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\base64\trumbowyg.base64.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\cleanpaste\trumbowyg.cleanpaste.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\cleanpaste\trumbowyg.cleanpaste.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\colors\trumbowyg.colors.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\colors\trumbowyg.colors.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\colors\ui\trumbowyg.colors.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\colors\ui\trumbowyg.colors.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\emoji\trumbowyg.emoji.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\emoji\trumbowyg.emoji.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\emoji\ui\trumbowyg.emoji.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\emoji\ui\trumbowyg.emoji.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\fontfamily\trumbowyg.fontfamily.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\fontfamily\trumbowyg.fontfamily.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\fontsize\trumbowyg.fontsize.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\fontsize\trumbowyg.fontsize.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\giphy\trumbowyg.giphy.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\giphy\trumbowyg.giphy.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\giphy\ui\trumbowyg.giphy.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\giphy\ui\trumbowyg.giphy.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\highlight\trumbowyg.highlight.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\highlight\trumbowyg.highlight.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\highlight\ui\trumbowyg.highlight.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\highlight\ui\trumbowyg.highlight.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\history\trumbowyg.history.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\history\trumbowyg.history.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\indent\trumbowyg.indent.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\indent\trumbowyg.indent.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\insertaudio\trumbowyg.insertaudio.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\insertaudio\trumbowyg.insertaudio.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\lineheight\trumbowyg.lineheight.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\lineheight\trumbowyg.lineheight.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mathml\trumbowyg.mathml.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mathml\trumbowyg.mathml.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mathml\ui\trumbowyg.mathml.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mathml\ui\trumbowyg.mathml.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mention\trumbowyg.mention.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mention\trumbowyg.mention.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mention\ui\trumbowyg.mention.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mention\ui\trumbowyg.mention.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\noembed\trumbowyg.noembed.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\noembed\trumbowyg.noembed.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\pasteembed\trumbowyg.pasteembed.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\pasteembed\trumbowyg.pasteembed.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\pasteimage\trumbowyg.pasteimage.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\pasteimage\trumbowyg.pasteimage.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\preformatted\trumbowyg.preformatted.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\preformatted\trumbowyg.preformatted.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\resizimg\trumbowyg.resizimg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\resizimg\trumbowyg.resizimg.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\ruby\trumbowyg.ruby.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\ruby\trumbowyg.ruby.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\specialchars\trumbowyg.specialchars.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\specialchars\trumbowyg.specialchars.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\specialchars\ui\trumbowyg.specialchars.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\specialchars\ui\trumbowyg.specialchars.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\table\trumbowyg.table.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\table\trumbowyg.table.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\table\ui\trumbowyg.table.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\table\ui\trumbowyg.table.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\template\trumbowyg.template.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\template\trumbowyg.template.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\upload\trumbowyg.upload.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\upload\trumbowyg.upload.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\trumbowyg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\trumbowyg.min.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\ui\icons.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\ui\trumbowyg.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\ui\trumbowyg.min.css" />
+    <Content Include="Content\Admin\Home\trumbowyg\gulpfile.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\index.html" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\base64\trumbowyg.base64.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\base64\ui\icons\base64.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\cleanpaste\trumbowyg.cleanpaste.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\colors\trumbowyg.colors.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\colors\ui\icons\back-color.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\colors\ui\icons\fore-color.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\emoji\trumbowyg.emoji.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\emoji\ui\icons\emoji.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\fontfamily\trumbowyg.fontfamily.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\fontsize\trumbowyg.fontsize.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\fontsize\ui\icons\fontsize.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\giphy\trumbowyg.giphy.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\giphy\ui\icons\giphy.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\highlight\trumbowyg.highlight.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\highlight\ui\icons\highlight.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\history\trumbowyg.history.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\indent\trumbowyg.indent.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\indent\ui\icons\indent.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\indent\ui\icons\outdent.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\insertaudio\trumbowyg.insertaudio.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\insertaudio\ui\icons\insert-audio.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\lineheight\trumbowyg.lineheight.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\lineheight\ui\icons\lineheight.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\mathml\trumbowyg.mathml.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\mathml\ui\icons\mathml.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\mention\trumbowyg.mention.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\mention\ui\icons\mention.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\noembed\trumbowyg.noembed.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\noembed\ui\icons\noembed.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\pasteembed\trumbowyg.pasteembed.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\pasteimage\trumbowyg.pasteimage.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\preformatted\trumbowyg.preformatted.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\preformatted\ui\icons\preformatted.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\resizimg\trumbowyg.resizimg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\ruby\trumbowyg.ruby.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\ruby\ui\icons\ruby.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\specialchars\trumbowyg.specialchars.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\specialchars\ui\icons\special-chars.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\trumbowyg.table.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\icons\col-delete.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\icons\col-left.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\icons\col-right.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\icons\row-above.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\icons\row-below.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\icons\row-delete.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\icons\table-delete.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\icons\table.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\template\trumbowyg.template.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\upload\trumbowyg.upload.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\upload\ui\icons\upload.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\sponsors\avot.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\sponsors\socialoptic.png" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\ar.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\bg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\bn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\by.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\ca.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\cs.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\da.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\de.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\el.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\en.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\es.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\es_ar.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\et.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\fa.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\fi.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\fr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\he.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\hr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\hu.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\id.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\it.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\ja.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\ko.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\lt.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\mn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\my.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\nl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\no_nb.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\ph.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\pl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\pt.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\pt_br.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\ro.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\rs.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\rs_latin.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\ru.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\sk.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\sl.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\sq.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\sv.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\th.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\tr.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\ua.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\vi.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\zh_cn.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\langs\zh_tw.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\trumbowyg.js" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\blockquote.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\bold.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\close.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\create-link.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\del.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\em.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\fullscreen.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\h1.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\h2.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\h3.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\h4.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\h5.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\h6.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\horizontal-rule.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\insert-image.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\italic.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\justify-center.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\justify-full.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\justify-left.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\justify-right.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\link.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\ordered-list.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\p.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\redo.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\removeformat.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\strikethrough.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\strong.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\subscript.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\superscript.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\underline.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\undo.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\unlink.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\unordered-list.svg" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\icons\view-html.svg" />
+    <Content Include="Content\Admin\jindo-admin.js" />
+    <Content Include="Content\Admin\js-backup\jindo.createproduct.js" />
+    <Content Include="Content\Admin\Login\css\main.css" />
+    <Content Include="Content\Admin\Login\css\util.css" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\Admin\Login\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Content\Admin\Login\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\Admin\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\Admin\Login\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="Content\Admin\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\UFL.txt" />
+    <Content Include="Content\Admin\Login\images\bg-01.jpg" />
+    <Content Include="Content\Admin\Login\images\icons\favicon.ico" />
+    <Content Include="Content\Admin\Login\js\main.js" />
+    <Content Include="Content\Admin\Login\vendor\animate\animate.css" />
+    <Content Include="Content\Admin\Login\vendor\animsition\css\animsition.css" />
+    <Content Include="Content\Admin\Login\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Content\Admin\Login\vendor\animsition\js\animsition.js" />
+    <Content Include="Content\Admin\Login\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\Admin\Login\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Content\Admin\Login\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\Admin\Login\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\Admin\Login\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Content\Admin\Login\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Content\Admin\Login\vendor\daterangepicker\moment.js" />
+    <Content Include="Content\Admin\Login\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Content\Admin\Login\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\Admin\Login\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\Admin\Login\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\Admin\Login\vendor\select2\select2.css" />
+    <Content Include="Content\Admin\Login\vendor\select2\select2.js" />
+    <Content Include="Content\Admin\Login\vendor\select2\select2.min.css" />
+    <Content Include="Content\Admin\Login\vendor\select2\select2.min.js" />
+    <Content Include="Content\bao-gia\bao-gia-coffee.jpg" />
+    <Content Include="Content\bao-gia\bao-gia-kien-truc.jpg" />
+    <Content Include="Content\bao-gia\bao-gia-noi-that.jpg" />
+    <Content Include="Content\bao-gia\bao-gia-shop.jpg" />
+    <Content Include="Content\bao-gia\quy-trinh.jpg" />
+    <Content Include="Content\bao-gia\tron-goi.jpg" />
+    <Content Include="Content\Admin\jindo-modal.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\no-image-800x600.png" />
+    <Content Include="Content\public\frontend\css\bootstrap.css" />
+    <Content Include="Content\public\frontend\css\cust.css" />
+    <Content Include="Content\public\frontend\css\fancybox.min.css" />
+    <Content Include="Content\public\frontend\css\font-awesome.css" />
+    <Content Include="Content\public\frontend\css\jquery.mmenu.all.css" />
+    <Content Include="Content\public\frontend\css\responsive.css" />
+    <Content Include="Content\public\frontend\css\slick.min.css" />
+    <Content Include="Content\public\frontend\css\style.css" />
+    <Content Include="Content\public\frontend\css\swiper.min.css" />
+    <Content Include="Content\public\frontend\images\bg-feel.png" />
+    <Content Include="Content\public\frontend\images\feel.png" />
+    <Content Include="Content\public\frontend\images\home.png" />
+    <Content Include="Content\public\frontend\images\hotline.gif" />
+    <Content Include="Content\public\frontend\images\left.png" />
+    <Content Include="Content\public\frontend\images\left1.png" />
+    <Content Include="Content\public\frontend\images\loban\thuoc388.png" />
+    <Content Include="Content\public\frontend\images\loban\thuoc429.png" />
+    <Content Include="Content\public\frontend\images\loban\thuoc522.png" />
+    <Content Include="Content\public\frontend\images\place1.png" />
+    <Content Include="Content\public\frontend\images\place2.png" />
+    <Content Include="Content\public\frontend\images\place3.png" />
+    <Content Include="Content\public\frontend\images\place4.png" />
+    <Content Include="Content\public\frontend\images\place5.png" />
+    <Content Include="Content\public\frontend\images\place6.png" />
+    <Content Include="Content\public\frontend\images\place7.png" />
+    <Content Include="Content\public\frontend\images\read-right.png" />
+    <Content Include="Content\public\frontend\images\right.png" />
+    <Content Include="Content\public\frontend\images\right1.png" />
+    <Content Include="Content\public\frontend\images\rul.png" />
+    <Content Include="Content\public\frontend\images\search.png" />
+    <Content Include="Content\public\frontend\js\bootstrap.js" />
+    <Content Include="Content\public\frontend\js\functions.js" />
+    <Content Include="Content\public\frontend\js\iscroll.js" />
+    <Content Include="Content\public\frontend\js\jquery.min.js" />
+    <Content Include="Content\public\frontend\js\jquery.mmenu.all.js" />
+    <Content Include="Content\public\frontend\js\main.js" />
+    <Content Include="Content\public\frontend\js\slick.min.js" />
+    <Content Include="Content\public\frontend\js\swiper.min.js" />
+    <Content Include="Content\uploads\about\about-nhansu.jpg" />
+    <Content Include="Content\uploads\about\about.jpg" />
+    <Content Include="Content\uploads\about\banner-about.jpg" />
+    <Content Include="Content\uploads\about\banner-coffee.jpg" />
+    <Content Include="Content\uploads\about\banner.jpg" />
+    <Content Include="Content\uploads\about\Banner1.jpg" />
+    <Content Include="Content\uploads\about\dichvu-about.jpg" />
+    <Content Include="Content\uploads\about\khonggian.jpg" />
+    <Content Include="Content\uploads\about\khonggian1.jpg" />
+    <Content Include="Content\uploads\about\nhansuchamhet.jpg" />
+    <Content Include="Content\uploads\about\phong khach bep %289%29.jpg" />
+    <Content Include="Content\uploads\about\tamnhin.jpg" />
+    <Content Include="Content\uploads\about\thanhtuu.jpg" />
+    <Content Include="Content\uploads\about\thienduong.jpg" />
+    <Content Include="Content\uploads\about\toantranh.jpg" />
+    <Content Include="Content\uploads\banner\1.jpg" />
+    <Content Include="Content\uploads\banner\2.jpg" />
+    <Content Include="Content\uploads\banner\3.jpg" />
+    <Content Include="Content\uploads\banner\4.jpg" />
+    <Content Include="Content\uploads\banner\5.jpg" />
+    <Content Include="Content\uploads\banner\6.jpg" />
+    <Content Include="Content\uploads\banner\7.jpg" />
+    <Content Include="Content\uploads\banner\8.jpg" />
+    <Content Include="Content\uploads\banner\anh1.jpg" />
+    <Content Include="Content\uploads\banner\anh2.jpg" />
+    <Content Include="Content\uploads\banner\anh3.jpg" />
+    <Content Include="Content\uploads\banner\anh4.jpg" />
+    <Content Include="Content\uploads\banner\anh5.jpg" />
+    <Content Include="Content\uploads\banner\Banner1.jpg" />
+    <Content Include="Content\uploads\banner\Banner2.jpg" />
+    <Content Include="Content\uploads\banner\Banner3.jpg" />
+    <Content Include="Content\uploads\banner\Banner4.jpg" />
+    <Content Include="Content\uploads\banner\Banner5.jpg" />
+    <Content Include="Content\uploads\banner\bia2.jpg" />
+    <Content Include="Content\uploads\banner\bia3.jpg" />
+    <Content Include="Content\uploads\banner\bia4.jpg" />
+    <Content Include="Content\uploads\banner\bia5.jpg" />
+    <Content Include="Content\uploads\banner\bia7.jpg" />
+    <Content Include="Content\uploads\banner\bia8.jpg" />
+    <Content Include="Content\uploads\contact\1570006369-bn-about.png" />
+    <Content Include="Content\uploads\contact\up-arrow.png" />
+    <Content Include="Content\uploads\logo\ba22bec2edd1198f40c0.jpg" />
+    <Content Include="Content\uploads\logo\doi-tac.png" />
+    <Content Include="Content\uploads\logo\icons8-facebook-f-20.png" />
+    <Content Include="Content\uploads\logo\icons8-instagram-20.png" />
+    <Content Include="Content\uploads\logo\icons8-play-button-20.png" />
+    <Content Include="Content\uploads\logo\logo web den.png" />
+    <Content Include="Content\uploads\logo\logo web trang.png" />
+    <Content Include="Content\uploads\logo\logo-chinhthuc1.jpg" />
+    <Content Include="Content\uploads\logo\logo-chinhthuc2.jpg" />
+    <Content Include="Content\uploads\logo\logo-footer.jpg" />
+    <Content Include="Content\uploads\logo\logo-full.png" />
+    <Content Include="Content\uploads\logo\logo-full2.png" />
+    <Content Include="Content\uploads\logo\logo-ladivad.png" />
+    <Content Include="Content\uploads\logo\logo-ladivad2.png" />
+    <Content Include="Content\uploads\logo\logo-text.png" />
+    <Content Include="Content\uploads\logo\logo1-footer.jpg" />
+    <Content Include="Content\uploads\logo\logo2.png" />
+    <Content Include="Content\uploads\logo\phone.png" />
+    <Content Include="Content\uploads\logo\z2563699754970_8bed241fa69a4e9342c1a869b1cc8b2b.jpg" />
+    <Content Include="Content\uploads\news\about-nhansu.jpg" />
+    <Content Include="Content\uploads\project\123.jpg" />
+    <Content Include="Content\uploads\project\234.jpg" />
+    <Content Include="Content\uploads\project\anh1.jpg" />
+    <Content Include="Content\uploads\project\anh10.jpg" />
+    <Content Include="Content\uploads\project\anh11.jpg" />
+    <Content Include="Content\uploads\project\anh12.jpg" />
+    <Content Include="Content\uploads\project\anh13.jpg" />
+    <Content Include="Content\uploads\project\anh14.jpg" />
+    <Content Include="Content\uploads\project\anh15.jpg" />
+    <Content Include="Content\uploads\project\anh16.jpg" />
+    <Content Include="Content\uploads\project\anh17.jpg" />
+    <Content Include="Content\uploads\project\anh18.jpg" />
+    <Content Include="Content\uploads\project\anh19.jpg" />
+    <Content Include="Content\uploads\project\anh2.jpg" />
+    <Content Include="Content\uploads\project\anh20.jpg" />
+    <Content Include="Content\uploads\project\anh21.jpg" />
+    <Content Include="Content\uploads\project\anh22.jpg" />
+    <Content Include="Content\uploads\project\anh23.jpg" />
+    <Content Include="Content\uploads\project\anh24.jpg" />
+    <Content Include="Content\uploads\project\anh25.jpg" />
+    <Content Include="Content\uploads\project\anh26.jpg" />
+    <Content Include="Content\uploads\project\anh3.jpg" />
+    <Content Include="Content\uploads\project\anh4.jpg" />
+    <Content Include="Content\uploads\project\anh5.jpg" />
+    <Content Include="Content\uploads\project\anh6.jpg" />
+    <Content Include="Content\uploads\project\anh7.jpg" />
+    <Content Include="Content\uploads\project\anh8.jpg" />
+    <Content Include="Content\uploads\project\anh9.jpg" />
+    <Content Include="Content\uploads\project\camsa.jpg" />
+    <Content Include="Content\uploads\project\IMG_7923.jpg" />
+    <Content Include="Content\uploads\project\IMG_7956.jpg" />
+    <Content Include="Content\uploads\project\IMG_8355.jpg" />
+    <Content Include="Content\uploads\project\IMG_E5426.JPG" />
+    <Content Include="Content\uploads\project\kemxoai.jpg" />
+    <Content Include="Content\uploads\project\khaitruong.jpg" />
+    <Content Include="Content\uploads\project\Nen.jpg" />
+    <Content Include="Content\uploads\project\olong.jpg" />
+    <Content Include="Content\uploads\project\river.jpg" />
+    <Content Include="Content\uploads\project\set.jpg" />
+    <Content Include="Content\uploads\project\set2.jpg" />
+    <Content Include="Content\uploads\project\SETN.JPG" />
+    <Content Include="Content\uploads\project\settra.jpg" />
+    <Content Include="Content\uploads\project\settra2.jpg" />
+    <Content Include="Content\uploads\project\settra3.jpg" />
+    <Content Include="Content\uploads\project\t2.jpg" />
+    <Content Include="Content\uploads\project\tra.jpg" />
+    <Content Include="Content\uploads\service\9. CHUNG CU GOLDMARK CITY %2811%29.jpg" />
+    <Content Include="Content\uploads\service\Banner1.jpg" />
+    <Content Include="Content\uploads\service\Banner3.jpg" />
+    <Content Include="Content\uploads\service\Banner5.jpg" />
+    <Content Include="Content\uploads\service\ngoaithat..jpg" />
+    <Content Include="Content\uploads\service\ngoaithat.jpg" />
+    <Content Include="Content\uploads\service\nhapho.jpg" />
+    <Content Include="Content\uploads\service\noi.that.jpg" />
+    <Content Include="Content\uploads\service\noithat-part2.jpg" />
+    <Content Include="Content\uploads\service\noithat..jpg" />
+    <Content Include="Content\uploads\service\noithat.jpg" />
+    <Content Include="Content\uploads\service\phong khach 1 %282%29.jpg" />
+    <Content Include="Content\uploads\service\PHONG SHC1 %283%29.jpg" />
+    <Content Include="Content\uploads\service\thietke-chungcu.jpg" />
+    <Content Include="Content\uploads\sidebar\apartment.png" />
+    <Content Include="Content\uploads\sidebar\housetown.png" />
+    <Content Include="Content\uploads\sidebar\villa.png" />
+    <Content Include="Content\uploads\social\sectigo_trust_seal_sm_82x32.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\admin\admin-layout.js" />
+    <Content Include="Scripts\admin\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\admin\bootstrap-notify.js" />
+    <Content Include="Scripts\admin\bootstrap.min.js" />
+    <Content Include="Scripts\admin\chartist.min.js" />
+    <Content Include="Scripts\admin\color-picker.js" />
+    <Content Include="Scripts\admin\fileuploads.js" />
+    <Content Include="Scripts\admin\fullcalendar.min.js" />
+    <Content Include="Scripts\admin\google-maps-api.js" />
+    <Content Include="Scripts\admin\jasny-bootstrap.min.js" />
+    <Content Include="Scripts\admin\jindo-admin.js" />
+    <Content Include="Scripts\admin\jindo-modal.js" />
+    <Content Include="Scripts\admin\jindo-validate.js" />
+    <Content Include="Scripts\admin\jindo.categorylist.js" />
+    <Content Include="Scripts\admin\jindo.createpost.js" />
+    <Content Include="Scripts\admin\jindo.plugin.js" />
+    <Content Include="Scripts\admin\jindokuyo.js" />
+    <Content Include="Scripts\admin\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\admin\jquery-jvectormap.js" />
+    <Content Include="Scripts\admin\jquery-ui-jindo.min.js" />
+    <Content Include="Scripts\admin\jquery-ui.min.js" />
+    <Content Include="Scripts\admin\jquery.bootstrap-wizard.js" />
+    <Content Include="Scripts\admin\jquery.datatables.js" />
+    <Content Include="Scripts\admin\jquery.redirect.js" />
+    <Content Include="Scripts\admin\jquery.select-bootstrap.js" />
+    <Content Include="Scripts\admin\jquery.sharrre.js" />
+    <Content Include="Scripts\admin\jquery.tagsinput.js" />
+    <Content Include="Scripts\admin\jquery.validate.min.js" />
+    <Content Include="Scripts\admin\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\admin\js-backup\jindo.createproduct.js" />
+    <Content Include="Scripts\admin\js-backup\jindo.productlist.js" />
+    <Content Include="Scripts\admin\material-dashboard.js" />
+    <Content Include="Scripts\admin\material.min.js" />
+    <Content Include="Scripts\admin\moment.min.js" />
+    <Content Include="Scripts\admin\nouislider.min.js" />
+    <Content Include="Scripts\admin\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Scripts\admin\piklor.js" />
+    <Content Include="Scripts\admin\simple.money.format.js" />
+    <Content Include="Scripts\admin\sweetalert2.js" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\_Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\_ParentMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\_ParentList.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\_Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\News\_Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\News\HotNews.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\_GetNewsView.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\_GetProjectView.cshtml" />
+    <None Include="ConnectionStrings.config" />
+    <None Include="AppSettings.config" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\Admin\Login\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\Admin\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\Admin\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\Admin\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\Admin\Login\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\Admin\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="Content\Admin\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="Content\Admin\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="Content\Admin\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Content\Admin\Login\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\Ubuntu-Bold.ttf" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\Ubuntu-BoldItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\Ubuntu-Italic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\Ubuntu-Light.ttf" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\Ubuntu-LightItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\Ubuntu-Medium.ttf" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\Ubuntu-MediumItalic.ttf" />
+    <Content Include="Content\Admin\Login\fonts\ubuntu\Ubuntu-Regular.ttf" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Admin\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\Admin\Home\assets\css\now-ui-dashboard.css.map" />
+    <Content Include="Content\Admin\Home\assets\fonts\nucleo-outline.eot" />
+    <Content Include="Content\Admin\Home\assets\fonts\nucleo-outline.ttf" />
+    <Content Include="Content\Admin\Home\assets\fonts\nucleo-outline.woff" />
+    <Content Include="Content\Admin\Home\assets\fonts\nucleo-outline.woff2" />
+    <Content Include="Content\Admin\Home\assets\js\now-ui-dashboard.js.map" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\cards\_card-chart.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\mixins\_buttons.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\mixins\_cards.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\mixins\_dropdown.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\mixins\_inputs.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\mixins\_page-header.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\mixins\_transparency.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\plugins\_plugin-animate-bootstrap-notify.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\plugins\_plugin-perfect-scrollbar.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_alerts.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_buttons.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_cards.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_checkboxes-radio.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_dropdown.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_fixed-plugin.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_footers.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_images.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_inputs.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_misc.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_mixins.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_navbar.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_nucleo-outline.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_page-header.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_responsive.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_tables.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_typography.scss" />
+    <Content Include="Content\Admin\Home\assets\scss\now-ui-dashboard\_variables.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\.bowerrc" />
+    <Content Include="Content\Admin\Home\trumbowyg\.gitattributes" />
+    <Content Include="Content\Admin\Home\trumbowyg\.github\FUNDING.yml" />
+    <Content Include="Content\Admin\Home\trumbowyg\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="Content\Admin\Home\trumbowyg\.gitignore" />
+    <Content Include="Content\Admin\Home\trumbowyg\.jshintrc" />
+    <Content Include="Content\Admin\Home\trumbowyg\.npmignore" />
+    <Content Include="Content\Admin\Home\trumbowyg\BACKERS.md" />
+    <Content Include="Content\Admin\Home\trumbowyg\bower.json" />
+    <Content Include="Content\Admin\Home\trumbowyg\CONTRIBUTORS.md" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\colors\ui\sass\trumbowyg.colors.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\emoji\ui\sass\trumbowyg.emoji.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\giphy\ui\sass\trumbowyg.giphy.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\highlight\ui\sass\trumbowyg.highlight.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mathml\ui\sass\trumbowyg.mathml.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\mention\ui\sass\trumbowyg.mention.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\specialchars\ui\sass\trumbowyg.specialchars.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\plugins\table\ui\sass\trumbowyg.table.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\dist\ui\sass\trumbowyg.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\.gitignore" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\.jshintrc" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\font\panton.eot" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\font\panton.ttf" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\font\panton.woff" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\font\panton.woff2" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\package.json" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\main.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_base.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_buttons.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_documentation.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_donate.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_font.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_footer.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_get-started.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_header.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_highlightjs-github.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_introduction.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_languages.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_normalize.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_plugins-packages.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_section.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\scss\_variables.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\colors\ui\sass\trumbowyg.colors.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\emoji\ui\sass\trumbowyg.emoji.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\giphy\ui\sass\trumbowyg.giphy.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\highlight\ui\sass\trumbowyg.highlight.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mathml\ui\sass\trumbowyg.mathml.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\mention\ui\sass\trumbowyg.mention.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\specialchars\ui\sass\trumbowyg.specialchars.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\plugins\table\ui\sass\trumbowyg.table.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\trumbowyg\dist\ui\sass\trumbowyg.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\docs\yarn.lock" />
+    <Content Include="Content\Admin\Home\trumbowyg\LICENSE" />
+    <Content Include="Content\Admin\Home\trumbowyg\package-lock.json" />
+    <Content Include="Content\Admin\Home\trumbowyg\package.json" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\colors\ui\sass\trumbowyg.colors.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\emoji\ui\sass\trumbowyg.emoji.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\giphy\ui\sass\trumbowyg.giphy.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\highlight\ui\sass\trumbowyg.highlight.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\mathml\ui\sass\trumbowyg.mathml.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\mention\ui\sass\trumbowyg.mention.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\specialchars\ui\sass\trumbowyg.specialchars.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\plugins\table\ui\sass\trumbowyg.table.scss" />
+    <Content Include="Content\Admin\Home\trumbowyg\README.md" />
+    <Content Include="Content\Admin\Home\trumbowyg\src\ui\sass\trumbowyg.scss" />
+    <Content Include="Content\Admin\js-backup\jindo.productlist.js" />
+    <Content Include="Content\public\frontend\css\bootstrap.min.css.map" />
+    <Content Include="Content\public\frontend\css\style.css.map" />
+    <Content Include="Content\public\frontend\js\bootstrap.min.js.map" />
+    <Content Include="Content\public\frontend\js\jquery.min.map" />
+    <Content Include="Content\public\frontend\js\swiper.min.js.map" />
+    <Content Include="Scripts\dropzone\basic.css" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone\dropzone.css" />
+    <Content Include="Scripts\dropzone\dropzone.js" />
+    <Content Include="Scripts\dropzone\min\basic.min.css" />
+    <Content Include="Scripts\dropzone\min\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\dropzone\min\dropzone.min.backup.js" />
+    <Content Include="Scripts\dropzone\min\dropzone.min.css" />
+    <Content Include="Scripts\dropzone\min\dropzone.min.js" />
+    <Content Include="Scripts\layerslider\css\blank.gif" />
+    <Content Include="Scripts\layerslider\skins\fullwidth\skin.css" />
+    <Content Include="Scripts\layerslider\skins\fullwidth\skin.png" />
+    <Content Include="Scripts\layerslider\skins\v5\skin.css" />
+    <Content Include="Scripts\layerslider\skins\v5\skin.png" />
+    <Content Include="Scripts\trumbowyg\langs\ar.js" />
+    <Content Include="Scripts\trumbowyg\langs\bg.js" />
+    <Content Include="Scripts\trumbowyg\langs\by.js" />
+    <Content Include="Scripts\trumbowyg\langs\ca.js" />
+    <Content Include="Scripts\trumbowyg\langs\cs.js" />
+    <Content Include="Scripts\trumbowyg\langs\da.js" />
+    <Content Include="Scripts\trumbowyg\langs\de.js" />
+    <Content Include="Scripts\trumbowyg\langs\el.js" />
+    <Content Include="Scripts\trumbowyg\langs\en.js" />
+    <Content Include="Scripts\trumbowyg\langs\es.js" />
+    <Content Include="Scripts\trumbowyg\langs\es_ar.js" />
+    <Content Include="Scripts\trumbowyg\langs\fa.js" />
+    <Content Include="Scripts\trumbowyg\langs\fi.js" />
+    <Content Include="Scripts\trumbowyg\langs\fr.js" />
+    <Content Include="Scripts\trumbowyg\langs\he.js" />
+    <Content Include="Scripts\trumbowyg\langs\hr.js" />
+    <Content Include="Scripts\trumbowyg\langs\hu.js" />
+    <Content Include="Scripts\trumbowyg\langs\id.js" />
+    <Content Include="Scripts\trumbowyg\langs\it.js" />
+    <Content Include="Scripts\trumbowyg\langs\ja.js" />
+    <Content Include="Scripts\trumbowyg\langs\ko.js" />
+    <Content Include="Scripts\trumbowyg\langs\lt.js" />
+    <Content Include="Scripts\trumbowyg\langs\mn.js" />
+    <Content Include="Scripts\trumbowyg\langs\my.js" />
+    <Content Include="Scripts\trumbowyg\langs\nl.js" />
+    <Content Include="Scripts\trumbowyg\langs\no_nb.js" />
+    <Content Include="Scripts\trumbowyg\langs\ph.js" />
+    <Content Include="Scripts\trumbowyg\langs\pl.js" />
+    <Content Include="Scripts\trumbowyg\langs\pt.js" />
+    <Content Include="Scripts\trumbowyg\langs\pt_br.js" />
+    <Content Include="Scripts\trumbowyg\langs\ro.js" />
+    <Content Include="Scripts\trumbowyg\langs\rs.js" />
+    <Content Include="Scripts\trumbowyg\langs\rs_latin.js" />
+    <Content Include="Scripts\trumbowyg\langs\ru.js" />
+    <Content Include="Scripts\trumbowyg\langs\sk.js" />
+    <Content Include="Scripts\trumbowyg\langs\sl.js" />
+    <Content Include="Scripts\trumbowyg\langs\sq.js" />
+    <Content Include="Scripts\trumbowyg\langs\sv.js" />
+    <Content Include="Scripts\trumbowyg\langs\th.js" />
+    <Content Include="Scripts\trumbowyg\langs\tr.js" />
+    <Content Include="Scripts\trumbowyg\langs\ua.js" />
+    <Content Include="Scripts\trumbowyg\langs\vi.js" />
+    <Content Include="Scripts\trumbowyg\langs\zh_cn.js" />
+    <Content Include="Scripts\trumbowyg\langs\zh_tw.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg-jindo.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.backup.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.base64.min.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.cleanpaste.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.colors.min.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.emoji.min.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.fontfamily.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.fontfamily.min.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.fontsize.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.pasteembed.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.pasteimage.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.resizimg.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.table.min.js" />
+    <Content Include="Scripts\trumbowyg\trumbowyg.upload.js" />
+    <Content Include="Scripts\trumbowyg\ui\icons.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\blockquote.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\bold.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\close.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\create-link.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\del.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\em.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\fontsize.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\fullscreen.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\h1.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\h2.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\h3.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\h4.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\h5.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\h6.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\horizontal-rule.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\insert-image.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\italic.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\justify-center.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\justify-full.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\justify-left.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\justify-right.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\lineheight.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\link.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\ordered-list.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\p.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\redo.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\removeformat.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\strikethrough.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\strong.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\subscript.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\superscript.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\table.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\underline.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\undo.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\unlink.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\unordered-list.svg" />
+    <Content Include="Scripts\trumbowyg\ui\icons\view-html.svg" />
+    <Content Include="Scripts\trumbowyg\ui\trumbowyg.colors.min.css" />
+    <Content Include="Scripts\trumbowyg\ui\trumbowyg.emoji.css" />
+    <Content Include="Scripts\trumbowyg\ui\trumbowyg.min.css" />
+    <Content Include="Scripts\trumbowyg\ui\trumbowyg.table.min.css" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\ArtDeco.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\Banner.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\banner1.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\Banner2.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\banner3.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\banner4.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\Hiendai.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\Indochine.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\Ladivad.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\Tancodien.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\Toigian.jpg" />
+    <Content Include="Content\Bai-viet\Bai-tong-hop-cac-phong-cach-thiet-ke\Wabisabi.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Scripts\trumbowyg\ui\sass\trumbowyg.scss" />
+    <Content Include="Views\AboutUs\Degin.cshtml" />
+    <Content Include="Views\AboutUs\Cofee.cshtml" />
+    <Content Include="Views\Service\Interior.cshtml" />
+    <Content Include="Views\Service\Exterior.cshtml" />
+    <Content Include="Views\Partial\_Nav.cshtml" />
+    <Content Include="Views\Partial\_NavMb.cshtml" />
+    <Content Include="Views\Partial\_Slider.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\_HotNews.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Home\_Get4.cshtml" />
+    <Content Include="Views\Home\_Get5.cshtml" />
+    <Content Include="Views\Home\_Get9.cshtml" />
+    <Content Include="Views\Home\_Get10.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\ProjectInterior\Index.cshtml" />
+    <Content Include="Views\ProjectInterior\_Bt.cshtml" />
+    <Content Include="Views\ProjectInterior\_Ct.cshtml" />
+    <Content Include="Views\ProjectInterior\_Np.cshtml" />
+    <Content Include="Views\ProjectInterior\_Bt4.cshtml" />
+    <Content Include="Views\ProjectInterior\_Bt5.cshtml" />
+    <Content Include="Views\ProjectInterior\_Bt9.cshtml" />
+    <Content Include="Views\ProjectInterior\_Bt10.cshtml" />
+    <Content Include="Views\ProjectInterior\_Ct4.cshtml" />
+    <Content Include="Views\ProjectInterior\_Ct5.cshtml" />
+    <Content Include="Views\ProjectInterior\_Ct9.cshtml" />
+    <Content Include="Views\ProjectInterior\_Ct10.cshtml" />
+    <Content Include="Views\ProjectInterior\_Np4.cshtml" />
+    <Content Include="Views\ProjectInterior\_Np5.cshtml" />
+    <Content Include="Views\ProjectInterior\_Np9.cshtml" />
+    <Content Include="Views\ProjectInterior\_Np10.cshtml" />
+    <Content Include="Views\ProjectExterior\Index.cshtml" />
+    <Content Include="Views\ProjectExterior\_Bt.cshtml" />
+    <Content Include="Views\ProjectExterior\_Bt4.cshtml" />
+    <Content Include="Views\ProjectExterior\_Bt5.cshtml" />
+    <Content Include="Views\ProjectExterior\_Bt9.cshtml" />
+    <Content Include="Views\ProjectExterior\_Bt10.cshtml" />
+    <Content Include="Views\ProjectExterior\_Ct.cshtml" />
+    <Content Include="Views\ProjectExterior\_Ct4.cshtml" />
+    <Content Include="Views\ProjectExterior\_Ct5.cshtml" />
+    <Content Include="Views\ProjectExterior\_Ct9.cshtml" />
+    <Content Include="Views\ProjectExterior\_Ct10.cshtml" />
+    <Content Include="Views\ProjectExterior\_Np.cshtml" />
+    <Content Include="Views\ProjectExterior\_Np4.cshtml" />
+    <Content Include="Views\ProjectExterior\_Np5.cshtml" />
+    <Content Include="Views\ProjectExterior\_Np9.cshtml" />
+    <Content Include="Views\ProjectExterior\_Np10.cshtml" />
+    <Content Include="Views\Partial\_Search.cshtml" />
+    <Content Include="Views\Project\Details.cshtml" />
+    <Content Include="Views\Project\_Thumbs.cshtml" />
+    <Content Include="Views\Project\_SilderFooter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Account\" />
+    <Folder Include="uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\uploads\social\icons8-behance-30 %281%29.webp" />
+    <Content Include="Content\uploads\social\icons8-facebook-f-30 %281%29.webp" />
+    <Content Include="Content\uploads\social\icons8-instagram-30.webp" />
+    <Content Include="Content\uploads\social\icons8-pinterest-301.webp" />
+    <Content Include="Content\uploads\social\icons8-ringing-phone-30.webp" />
+    <Content Include="Content\uploads\social\icons8-youtube-50.webp" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Identity\Identity.csproj">
+      <Project>{6284CCA8-B781-4B6F-B5B3-3388411C4A6A}</Project>
+      <Name>Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\Libs.csproj">
+      <Project>{39DFE22A-2FDE-4149-842A-E4DC83673394}</Project>
+      <Name>Libs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{D5F9DB5C-0B63-4B80-910B-66A2C000A5D2}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{DE2821C1-5660-45CD-841B-DFD5ADC94C3E}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61844</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44314/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

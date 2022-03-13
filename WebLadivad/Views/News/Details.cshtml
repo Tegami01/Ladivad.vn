@@ -1,0 +1,48 @@
+﻿@model Model.DataModel.NewsDTO
+
+@{
+
+    ViewBag.Title = "Tin tức";
+}
+
+<main>
+<section id="banner-cate">
+    <div class="avarta"><img src="~/uploads/news/@Model.Imgs" class="img-fluid" width="100%"></div>
+</section>
+<section id="breadcrumbs">
+    <div class="container">
+        <div class="content">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="\"><img src="~/Content/public/frontend/images/home.png" class="img-fluid"></a></li>
+                <li class="list-inline-item"><span style="color: white">Giới thiệu</span></li>
+            </ul>
+        </div>
+    </div>
+    <section id="about">
+        <div class="container">
+            <div class="content">
+                <div class="list-about">
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-5">
+                                <div class="title">
+                                    <h2 style=" font-family: 'Times New Roman'; color: #000000;"><span>𝐋𝐀 𝐃𝐈𝐕𝐀𝐃' 𝐃𝐄𝐒𝐈𝐆𝐍</span></h2>
+                                    <p style="color: black; text-align: center">"NGHỆ THUẬT TRONG TỪNG KHÔNG GIAN SỐNG"</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="indo-item-about">
+                                    @Html.Raw(Model.Detail)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+</main>
+
